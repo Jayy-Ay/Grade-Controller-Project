@@ -1,4 +1,4 @@
-package uk.ac.rhul.cs2800;
+package uk.ac.rhul.cs2800.model;
 
 public class Grade extends Student {
   private int score;

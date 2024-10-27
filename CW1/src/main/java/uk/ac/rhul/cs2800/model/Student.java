@@ -1,4 +1,4 @@
-package uk.ac.rhul.cs2800;
+package uk.ac.rhul.cs2800.model;
 
 public class Student {
   private long id;
@@ -17,20 +17,23 @@ public class Student {
   }
 
   public float computeAverage() {
-    return 0;
+    float sum = 0;
+    for (int score : scores) {
+      sum += score;
+    }
+    return sum / this.scores.size();
   }
 
-  public void addGrade(Grade grade) {
-    grade.setScore(10);
+  public void addGrade(Grade grade, int score) {
+    grade.setScore(score);
   }
 
-  public Grade getGrade() {
-    return null;
+  public Grade getGrade(Module module) {
+    return module.getScore();
   }
 
   public void registerModule() {
     return;
   }
-
 
 }

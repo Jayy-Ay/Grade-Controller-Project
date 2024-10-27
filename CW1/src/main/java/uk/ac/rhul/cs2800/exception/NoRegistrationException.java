@@ -1,4 +1,6 @@
-package uk.ac.rhul.cs2800;
+package uk.ac.rhul.cs2800.exception;
+
+import uk.ac.rhul.cs2800.model.Student;
 
 public class NoRegistrationException extends Student {
 
