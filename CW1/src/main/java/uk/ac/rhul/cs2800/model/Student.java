@@ -1,7 +1,9 @@
 package uk.ac.rhul.cs2800.model;
 
+import java.util.ArrayList;
 import java.util.List;
 import uk.ac.rhul.cs2800.exception.NoGradeAvailableException;
+import uk.ac.rhul.cs2800.exception.NoRegistrationException;
 
 /** This contains all the important information of the student. */
 public class Student {
@@ -10,20 +12,23 @@ public class Student {
   private String lastName;
   private String userName;
   private String email;
-  private List<Grade> grades;
-  private List<Registration> registrations;
+  List<Grade> grades;
+  List<Registration> registrations;
 
-  /** Constructors. 
-   * @param long id, String firstName, String lastName, String userName, String email, List<Grade> grades 
+  /**
+   * Constructors.
+   * 
+   * @param grades
+   * @param long id, String firstName, String lastName, String userName, String email, List<Grade>
+   *        grades
    */
-  public Student(long id, String firstName, String lastName, String userName, String email,
-      List<Grade> grades) {
+  public Student(long id, String firstName, String lastName, String userName, String email) {
     this.id = id;
     this.firstName = firstName;
     this.lastName = lastName;
     this.userName = userName;
     this.email = email;
-    this.grades = grades;
+    this.grades = new ArrayList<Grade>();
   }
 
   /**
@@ -64,94 +69,9 @@ public class Student {
   /**
    * @param module the module that the student is taking.
    */
-  public void registerModule(Module module) {
-    Registration registration = new Registration(0, null, null, null, null, 0);
-
+  public void registerModule(Module module) throws NoRegistrationException {
+    Registration registation =
+        new Registration(id, firstName, lastName, userName, email, module);
+    registrations.add(registation);
   }
-
-  // --------------------------------------------------------------------
-  /**
-   * @return the id
-   */
-  public long getId() {
-    return id;
-  }
-
-  /**
-   * @param id the id to set
-   */
-  public void setId(long id) {
-    this.id = id;
-  }
-
-  /**
-   * @return the firstName
-   */
-  public String getFirstName() {
-    return firstName;
-  }
-
-  /**
-   * @param firstName the firstName to set
-   */
-  public void setFirstName(String firstName) {
-    this.firstName = firstName;
-  }
-
-  /**
-   * @return the lastName
-   */
-  public String getLastName() {
-    return lastName;
-  }
-
-  /**
-   * @param lastName the lastName to set
-   */
-  public void setLastName(String lastName) {
-    this.lastName = lastName;
-  }
-
-  /**
-   * @return the userName
-   */
-  public String getUserName() {
-    return userName;
-  }
-
-  /**
-   * @param userName the userName to set
-   */
-  public void setUserName(String userName) {
-    this.userName = userName;
-  }
-
-  /**
-   * @return the email
-   */
-  public String getEmail() {
-    return email;
-  }
-
-  /**
-   * @param email the email to set
-   */
-  public void setEmail(String email) {
-    this.email = email;
-  }
-
-  /**
-   * @return the grades
-   */
-  public List<Grade> getGrades() {
-    return grades;
-  }
-
-  /**
-   * @param grades the grades to set
-   */
-  public void setGrades(List<Grade> grades) {
-    this.grades = grades;
-  }
-
 }
