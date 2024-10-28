@@ -6,13 +6,15 @@ public class Module {
   private String name;
   private boolean mnc; // mandatory non-condonable.
   private Grade grade;
+  private Registration registration;
 
   /** Constructors. */
-  public Module(String code, String name, boolean mnc, Grade grade) {
-    code = code;
-    name = name;
-    mnc = mnc;
-    grade = grade;
+  public Module(String code, String name, boolean mnc, Grade grade, Registration registration) {
+    this.code = code;
+    this.name = name;
+    this.mnc = mnc;
+    this.grade = grade;
+    this.setRegistration(registration);
   }
 
   /**
@@ -63,5 +65,19 @@ public class Module {
    */
   public void setMnc(boolean mnc) {
     this.mnc = mnc;
+  }
+
+  /**
+   * @return the registration
+   */
+  public Registration getRegistration() {
+    return registration;
+  }
+
+  /**
+   * @param registration the registration to set
+   */
+  public void setRegistration(Registration registration) {
+    this.registration = registration;
   }
 }
