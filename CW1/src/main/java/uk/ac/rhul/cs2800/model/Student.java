@@ -2,7 +2,7 @@ package uk.ac.rhul.cs2800.model;
 
 import uk.ac.rhul.cs2800.exception.NoGradeAvailableException;
 
-// This contains all the important information of the student.
+/** This contains all the important information of the student. */
 public class Student {
   private long id;
   private String firstName;
@@ -10,7 +10,7 @@ public class Student {
   private String userName;
   private String email;
 
-  // Constructors.
+  /** Constructors. */
   public Student(long id, String firstName, String lastName, String userName, String email) {
     id = id;
     firstName = firstName;
@@ -22,13 +22,13 @@ public class Student {
   /**
    * @return the average score of the student
    */
-  // public float computeAverage() {
-  // float sum = 0;
-  // for (int score : scores) {
-  // sum += score;
-  // }
-  // return sum / this.scores.size();
-  // }
+  public float computeAverage() {
+    float sum = 0;
+    for (int score : scores) {
+      sum += score;
+    }
+    return sum / this.scores.size();
+  }
 
   /**
    * @param grade the student's grade that they got.

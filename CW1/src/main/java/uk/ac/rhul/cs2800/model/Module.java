@@ -1,13 +1,13 @@
 package uk.ac.rhul.cs2800.model;
 
-// This is a module that would contain the grade of the student.
+/** This is a module that would contain the grade of the student. */
 public class Module {
   private String code;
   private String name;
   private boolean mnc; // mandatory non-condonable.
   private Grade grade;
 
-  // Constructors.
+  /** Constructors. */
   public Module(String code, String name, boolean mnc, Grade grade) {
     code = code;
     name = name;
