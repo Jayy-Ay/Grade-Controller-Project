@@ -34,15 +34,6 @@ public class Module extends Registration {
   }
 
   /**
-   * Set the student's grade for this particular module.
-   *
-   * @return the grade.
-   */
-  public Grade setGrade() {
-    return grade;
-  }
-
-  /**
    * Get the student's name for this particular module.
    *
    * @return the name as a string

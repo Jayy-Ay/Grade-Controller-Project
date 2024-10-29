@@ -93,6 +93,11 @@ public class AppTest {
     assertThrows(NoGradeAvailableException.class, () -> {
       student.computeAverage();
     });
+    assertThrows(NoGradeAvailableException.class, () -> {
+      Module module = new Module(null, null, false, null);
+      student.registerModule(module);
+      student.getGrade(module);
+    });
   }
 
   /**

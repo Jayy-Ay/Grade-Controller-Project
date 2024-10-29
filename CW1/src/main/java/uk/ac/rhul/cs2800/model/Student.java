@@ -73,7 +73,11 @@ public class Student {
   public Grade getGrade(Module module) throws NoGradeAvailableException, NoRegistrationException {
     for (Registration registration : registrations) {
       if (module.getName() == registration.getModule().getName()) {
-        return module.getGrade();
+        if (module.getGrade() != null) {
+          return module.getGrade();
+        } else {
+          throw new NoGradeAvailableException();
+        }
       }
     }
     throw new NoRegistrationException();
