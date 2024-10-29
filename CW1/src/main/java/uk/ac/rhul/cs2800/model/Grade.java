@@ -11,6 +11,7 @@ public class Grade extends Module {
    * @param name name of the module.
    * @param mnc mandatory non-condonable.
    * @param score score of the grade.
+   * 
    */
   public Grade(String code, String name, boolean mnc, int score) {
     super(code, name, mnc, null);
@@ -19,6 +20,7 @@ public class Grade extends Module {
 
   /**
    * @return the score as in integer.
+   * 
    */
   public int getScore() {
     return score;
@@ -26,6 +28,7 @@ public class Grade extends Module {
 
   /**
    * @param score the integer score to set.
+   * 
    */
   public void setScore(int score) {
     this.score = score;

@@ -13,6 +13,7 @@ public class Registration extends Student {
    * @param userName identifying username.
    * @param email the student's email.
    * @param module the student is registering.
+   * 
    */
   public Registration(long id, String firstName, String lastName, String userName, String email,
       Module module) {
@@ -24,6 +25,7 @@ public class Registration extends Student {
    * Get the module and retunr the module.
    * 
    * @return the module.
+   * 
    */
   public Module getModule() {
     return module;
@@ -33,6 +35,7 @@ public class Registration extends Student {
    * Set the module in registration.
    * 
    * @param module the module to set.
+   * 
    */
   public void setModule(Module module) {
     this.module = module;

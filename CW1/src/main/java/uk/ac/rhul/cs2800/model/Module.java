@@ -14,6 +14,7 @@ public class Module extends Registration {
    * @param name name of the module.
    * @param mnc mandatory non-condonable.
    * @param grade for the module.
+   * 
    */
   public Module(String code, String name, boolean mnc, Grade grade) {
     super(0, null, null, null, null, null);
@@ -27,6 +28,7 @@ public class Module extends Registration {
    * Get the grade of the student in this particular module.
    * 
    * @return this grade.
+   * 
    */
   public Grade getGrade() {
     return this.grade;
@@ -36,6 +38,7 @@ public class Module extends Registration {
    * Set the student's grade for this particular module.
    * 
    * @return the grade.
+   * 
    */
   public Grade setGrade() {
     return grade;
@@ -45,6 +48,7 @@ public class Module extends Registration {
    * Get the student's name for this particular module.
    * 
    * @return the name as a string
+   * 
    */
   public String getName() {
     return this.name;

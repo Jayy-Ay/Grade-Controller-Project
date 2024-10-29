@@ -23,6 +23,7 @@ public class Student {
    * @param lastName last half of the student's name.
    * @param userName identifying username.
    * @param email the student's email.
+   * 
    */
   public Student(long id, String firstName, String lastName, String userName, String email) {
     this.id = id;
@@ -38,7 +39,9 @@ public class Student {
    * Take all grade scores of the student and calculate the average.
    * 
    * @return the average score of the student as a float.
+   * 
    * @exception NoGradeAvailableException If no grade is available/grade doesn't exist.
+   * 
    */
   public float computeAverage() throws NoGradeAvailableException {
     if (grades.size() < 1) {
@@ -55,6 +58,7 @@ public class Student {
    * Add and save the student's grade into a list of grades.
    * 
    * @param grade the student's grade that they got.
+   * 
    */
   public void addGrade(Grade grade) {
     grades.add(grade);
@@ -64,12 +68,14 @@ public class Student {
    * Get the grade of the student via. the module. TODO: Make it go through registration??.
    * 
    * @param module the module that the student took.
+   * 
    * @return the grade for the student.
    * @exception NoGradeAvailableException If no grade is available/grade doesn't exist.
    * @exception NoRegistrationException If a user try to access grades for unregistered modules.
+   * 
    */
   public Grade getGrade(Module module) throws NoGradeAvailableException, NoRegistrationException {
-    for (Registration registration: registrations) {
+    for (Registration registration : registrations) {
       if (module.getName() == registration.getModule().getName()) {
         return module.getGrade();
       }
@@ -81,7 +87,9 @@ public class Student {
    * Register the student with the module.
    * 
    * @param module the module that the student is taking.
+   * 
    * @exception NoRegistrationException If a user try to access grades for unregistered modules.
+   * 
    */
   public void registerModule(Module module) throws NoRegistrationException {
     Registration registation =
