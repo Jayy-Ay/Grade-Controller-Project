@@ -40,7 +40,7 @@ public class Module extends Registration {
    */
   public Grade setGrade() {
     return grade;
-  }c
+  }
 
   /**
    * Get the student's name for this particular module.

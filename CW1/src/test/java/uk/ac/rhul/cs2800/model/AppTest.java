@@ -20,7 +20,7 @@ public class AppTest {
 
   /**
    * Gets the average of all the Grade scores the student has (in a certain module).
-   * 
+   *
    * @throws NoGradeAvailableException If no grade is available/grade doesn't exist.
    */
   @Test
@@ -41,7 +41,7 @@ public class AppTest {
 
   /**
    * Check if grades are actually added.
-   * 
+   *
    * @throws NoGradeAvailableException.
    */
   @Test
@@ -56,7 +56,7 @@ public class AppTest {
 
   /**
    * Check if you actually get the grade of the student you assigned it to.
-   * 
+   *
    * @throws NoGradeAvailableException If no grade is available/grade doesn't exist.
    * @throws NoRegistrationException If a user try to access grades for unregistered modules.
    */
@@ -73,13 +73,14 @@ public class AppTest {
   /**
    * Check if you actually get to register the student to the module. TODO Make the Test Work Then
    * Work On Method.
-   * 
+   *
    * @throws NoGradeAvailableException If no grade is available/grade doesn't exist.
    */
   @Test
   void getRegistrationTest() throws NoRegistrationException {
     Module module = new Module(null, "Maths", false, null);
     student.registerModule(module);
+    assertEquals("Maths", module.getName());
     assertEquals(student.registrations.get(0).getModule().getName(), module.getName());
   }
 
@@ -104,7 +105,27 @@ public class AppTest {
       Module module = new Module(null, "Party", false, null);
       student.getGrade(module);
     });
+  }
 
+  /**
+   * Check if you can set and get a score for the grade
+   */
+  @Test
+  void gradeScoreTest() {
+    Grade grade = new Grade(null, null, false, 0);
+    grade.setScore(5);
+    assertEquals(5, grade.getScore());
+  }
 
+  /**
+   * Check if you can set and get a module for a registration
+   */
+  @Test
+  void registrationModuleTest() {
+    Registration registration = new Registration(0, null, null, null, null, null);
+    Module module = new Module(null, "Science", false, null);
+    registration.setModule(module);
+    assertEquals(module, registration.getModule());
+    assertEquals("Science", registration.getModule().getName());
   }
 }
