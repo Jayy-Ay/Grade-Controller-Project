@@ -10,10 +10,10 @@ public class Module extends Registration {
   /**
    * Constructors.
    * 
-   * @param code code for the module.
-   * @param name name of the module.
-   * @param mnc mandatory non-condonable.
-   * @param grade for the module.
+   * @param code The code for the module.
+   * @param name The name of the module.
+   * @param mnc Also known as mandatory non-condonable.
+   * @param grade The gradefor the module.
    * 
    */
   public Module(String code, String name, boolean mnc, Grade grade) {
