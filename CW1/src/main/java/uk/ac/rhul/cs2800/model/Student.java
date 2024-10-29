@@ -18,6 +18,7 @@ public class Student {
   /**
    * Constructors.
    * 
+   * 
    * @param id primary key of student.
    * @param firstName first half of the student's name.
    * @param lastName last half of the student's name.
@@ -38,6 +39,7 @@ public class Student {
   /**
    * Take all grade scores of the student and calculate the average.
    * 
+   * 
    * @return the average score of the student as a float.
    * 
    * @exception NoGradeAvailableException If no grade is available/grade doesn't exist.
@@ -57,6 +59,7 @@ public class Student {
   /**
    * Add and save the student's grade into a list of grades.
    * 
+   * 
    * @param grade the student's grade that they got.
    * 
    */
@@ -67,7 +70,9 @@ public class Student {
   /**
    * Get the grade of the student via. the module. TODO: Make it go through registration??.
    * 
+   * 
    * @param module the module that the student took.
+   * 
    * 
    * @return the grade for the student.
    * @exception NoGradeAvailableException If no grade is available/grade doesn't exist.
@@ -85,6 +90,7 @@ public class Student {
 
   /**
    * Register the student with the module.
+   * 
    * 
    * @param module the module that the student is taking.
    * 

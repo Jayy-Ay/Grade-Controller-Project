@@ -7,6 +7,7 @@ public class Registration extends Student {
   /**
    * Constructors.
    * 
+   * 
    * @param id The primary key of student.
    * @param firstName The first half of the student's name.
    * @param lastName The last half of the student's name.
@@ -24,6 +25,7 @@ public class Registration extends Student {
   /**
    * Get the module and retunr the module.
    * 
+   * 
    * @return the module.
    * 
    */
@@ -33,6 +35,7 @@ public class Registration extends Student {
 
   /**
    * Set the module in registration.
+   * 
    * 
    * @param module the module to set.
    * 

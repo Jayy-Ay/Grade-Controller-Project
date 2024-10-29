@@ -7,6 +7,7 @@ public class Grade extends Module {
   /**
    * Constructors.
    * 
+   * 
    * @param code The code for the module.
    * @param name The name of the module.
    * @param mnc Also known as mandatory non-condonable.
@@ -21,6 +22,7 @@ public class Grade extends Module {
   /**
    * Get the score of this grade.
    * 
+   * 
    * @return the score as in integer.
    * 
    */
@@ -30,6 +32,7 @@ public class Grade extends Module {
 
   /**
    * Set the score for this grade.
+   * 
    * 
    * @param score the integer score to set.
    * 

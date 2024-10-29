@@ -10,6 +10,7 @@ public class Module extends Registration {
   /**
    * Constructors.
    * 
+   * 
    * @param code The code for the module.
    * @param name The name of the module.
    * @param mnc Also known as mandatory non-condonable.
@@ -27,6 +28,7 @@ public class Module extends Registration {
   /**
    * Get the grade of the student in this particular module.
    * 
+   * 
    * @return this grade.
    * 
    */
@@ -37,6 +39,7 @@ public class Module extends Registration {
   /**
    * Set the student's grade for this particular module.
    * 
+   * 
    * @return the grade.
    * 
    */
@@ -46,6 +49,7 @@ public class Module extends Registration {
 
   /**
    * Get the student's name for this particular module.
+   * 
    * 
    * @return the name as a string
    * 
