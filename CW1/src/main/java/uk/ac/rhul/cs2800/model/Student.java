@@ -69,7 +69,12 @@ public class Student {
    * @exception NoRegistrationException If a user try to access grades for unregistered modules.
    */
   public Grade getGrade(Module module) throws NoGradeAvailableException, NoRegistrationException {
-    return module.getGrade();
+    for (Registration registration: registrations) {
+      if (module.getName() == registration.getModule().getName()) {
+        return module.getGrade();
+      }
+    }
+    throw new NoRegistrationException();
   }
 
   /**

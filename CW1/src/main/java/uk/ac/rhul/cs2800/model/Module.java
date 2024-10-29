@@ -40,4 +40,13 @@ public class Module extends Registration {
   public Grade setGrade() {
     return grade;
   }
+
+  /**
+   * Get the student's name for this particular module.
+   * 
+   * @return the name as a string
+   */
+  public String getName() {
+    return this.name;
+  }
 }

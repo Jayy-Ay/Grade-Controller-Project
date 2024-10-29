@@ -64,10 +64,10 @@ public class AppTest {
   void getGradeTest() throws NoGradeAvailableException, NoRegistrationException {
     Grade grade = new Grade(null, null, false, 10); // Make grade with score "10"
     Module module = new Module(null, null, false, grade); // Put grade inside module
-    student.addGrade(grade);
-    Grade actualGrade = student.getGrade(module);
-    assertNotNull(actualGrade.getScore());
-    assertEquals(10, actualGrade.getScore());
+    student.registerModule(module);
+    assertNotNull(student.registrations);
+    assertNotNull(student.registrations.get(0).getModule());
+    assertEquals(10, student.getGrade(module).getScore());
   }
 
   /**
@@ -80,7 +80,7 @@ public class AppTest {
   void getRegistrationTest() throws NoRegistrationException {
     Module module = new Module(null, "Maths", false, null);
     student.registerModule(module);
-    assertEquals(student);
+    assertEquals(student.registrations.get(0).getModule().getName(), module.getName());
   }
 
   /**
@@ -90,6 +90,7 @@ public class AppTest {
   @Test
   void NoGradeAvailableException() {
     assertThrows(NoGradeAvailableException.class, () -> {
+      student.computeAverage();
     });
   }
 
@@ -100,6 +101,8 @@ public class AppTest {
   @Test
   void NoRegistrationException() {
     assertThrows(NoRegistrationException.class, () -> {
+      Module module = new Module(null, "Party", false, null);
+      student.getGrade(module);
     });
   }
 }
