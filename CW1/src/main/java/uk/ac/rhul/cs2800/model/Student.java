@@ -18,11 +18,11 @@ public class Student {
   /**
    * Constructors.
    * 
-   * @param id
-   * @param firstName
-   * @param lastName
-   * @param userName
-   * @param email
+   * @param id primary key of student.
+   * @param firstName first half of the student's name.
+   * @param lastName last half of the student's name.
+   * @param userName identifying username.
+   * @param email the student's email.
    */
   public Student(long id, String firstName, String lastName, String userName, String email) {
     this.id = id;

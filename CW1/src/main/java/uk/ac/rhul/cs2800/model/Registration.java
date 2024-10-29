@@ -7,12 +7,12 @@ public class Registration extends Student {
   /**
    * Constructors.
    * 
-   * @param id
-   * @param firstName
-   * @param lastName
-   * @param userName
-   * @param email
-   * @param module
+   * @param id primary key of student.
+   * @param firstName first half of the student's name.
+   * @param lastName last half of the student's name.
+   * @param userName identifying username.
+   * @param email the student's email.
+   * @param module the student is registering.
    */
   public Registration(long id, String firstName, String lastName, String userName, String email,
       Module module) {

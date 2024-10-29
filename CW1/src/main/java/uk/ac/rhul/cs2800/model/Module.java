@@ -10,10 +10,10 @@ public class Module extends Registration {
   /**
    * Constructors.
    * 
-   * @param code
-   * @param name
-   * @param mnc
-   * @param grade
+   * @param code code for the module.
+   * @param name name of the module.
+   * @param mnc mandatory non-condonable.
+   * @param grade for the module.
    */
   public Module(String code, String name, boolean mnc, Grade grade) {
     super(0, null, null, null, null, null);
