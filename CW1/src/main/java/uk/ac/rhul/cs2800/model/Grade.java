@@ -6,13 +6,11 @@ public class Grade extends Module {
 
   /**
    * Constructors.
-   * 
-   * 
+   *
    * @param code The code for the module.
    * @param name The name of the module.
    * @param mnc Also known as mandatory non-condonable.
    * @param score The score of the grade.
-   * 
    */
   public Grade(String code, String name, boolean mnc, int score) {
     super(code, name, mnc, null);
@@ -21,10 +19,8 @@ public class Grade extends Module {
 
   /**
    * Get the score of this grade.
-   * 
-   * 
+   *
    * @return the score as in integer.
-   * 
    */
   public int getScore() {
     return score;
@@ -32,10 +28,8 @@ public class Grade extends Module {
 
   /**
    * Set the score for this grade.
-   * 
-   * 
+   *
    * @param score the integer score to set.
-   * 
    */
   public void setScore(int score) {
     this.score = score;
