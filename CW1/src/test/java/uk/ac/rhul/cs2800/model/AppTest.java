@@ -28,15 +28,15 @@ public class AppTest {
     for (int i = 0; i < 3; i++) {
       student.addGrade(new Grade(null, null, false, i + 1));
     }
-    assertNotNull(student.grades.get(0).getScore());
-    assertNotNull(student.grades.get(1).getScore());
-    assertNotNull(student.grades.get(2).getScore());
-    assertNotNull(student.grades.size());
-    assertEquals(1, student.grades.get(0).getScore());
-    assertEquals(2, student.grades.get(1).getScore());
-    assertEquals(3, student.grades.get(2).getScore());
-    assertEquals(3, student.grades.size());
-    assertEquals(2, student.computeAverage());
+    assertNotNull(student.grades.get(0).getScore()); // Test 1
+    assertNotNull(student.grades.get(1).getScore()); // Test 2
+    assertNotNull(student.grades.get(2).getScore()); // Test 3
+    assertNotNull(student.grades.size()); // Test 4
+    assertEquals(1, student.grades.get(0).getScore()); // Test 5
+    assertEquals(2, student.grades.get(1).getScore()); // Test 6
+    assertEquals(3, student.grades.get(2).getScore()); // Test 7
+    assertEquals(3, student.grades.size()); // Test 8
+    assertEquals(2, student.computeAverage()); // Test 9
   }
 
   /**
@@ -48,10 +48,10 @@ public class AppTest {
   void addGradeTest() throws NoGradeAvailableException {
     student.addGrade(new Grade(null, null, false, 10));
     student.addGrade(new Grade(null, null, false, 99));
-    assertNotNull(student.grades.get(0).getScore());
-    assertNotNull(student.grades.get(1).getScore());
-    assertEquals(10, student.grades.get(0).getScore());
-    assertEquals(99, student.grades.get(1).getScore());
+    assertNotNull(student.grades.get(0).getScore()); // Test 10
+    assertNotNull(student.grades.get(1).getScore()); // Test 11
+    assertEquals(10, student.grades.get(0).getScore()); // Test 12
+    assertEquals(99, student.grades.get(1).getScore()); // Test 13
   }
 
   /**
@@ -65,9 +65,9 @@ public class AppTest {
     Grade grade = new Grade(null, null, false, 10); // Make grade with score "10"
     Module module = new Module(null, null, false, grade); // Put grade inside module
     student.registerModule(module);
-    assertNotNull(student.registrations);
-    assertNotNull(student.registrations.get(0).getModule());
-    assertEquals(10, student.getGrade(module).getScore());
+    assertNotNull(student.registrations); // Test 14
+    assertNotNull(student.registrations.get(0).getModule()); // Test 15
+    assertEquals(10, student.getGrade(module).getScore()); // Test 16
   }
 
   /**
@@ -80,8 +80,8 @@ public class AppTest {
   void getRegistrationTest() throws NoRegistrationException {
     Module module = new Module(null, "Maths", false, null);
     student.registerModule(module);
-    assertEquals("Maths", module.getName());
-    assertEquals(student.registrations.get(0).getModule().getName(), module.getName());
+    assertEquals("Maths", module.getName()); // Test 17
+    assertEquals(student.registrations.get(0).getModule().getName(), module.getName()); // Test 18
   }
 
   /**
@@ -90,10 +90,10 @@ public class AppTest {
    */
   @Test
   void NoGradeAvailableException() {
-    assertThrows(NoGradeAvailableException.class, () -> {
+    assertThrows(NoGradeAvailableException.class, () -> { // Test 19
       student.computeAverage();
     });
-    assertThrows(NoGradeAvailableException.class, () -> {
+    assertThrows(NoGradeAvailableException.class, () -> { // Test 20
       Module module = new Module(null, null, false, null);
       student.registerModule(module);
       student.getGrade(module);
@@ -106,7 +106,7 @@ public class AppTest {
    */
   @Test
   void NoRegistrationException() {
-    assertThrows(NoRegistrationException.class, () -> {
+    assertThrows(NoRegistrationException.class, () -> { // Test 21
       Module module = new Module(null, "Party", false, null);
       student.getGrade(module);
     });
@@ -119,7 +119,7 @@ public class AppTest {
   void gradeScoreTest() {
     Grade grade = new Grade(null, null, false, 0);
     grade.setScore(5);
-    assertEquals(5, grade.getScore());
+    assertEquals(5, grade.getScore()); // Test 22
   }
 
   /**
@@ -130,7 +130,7 @@ public class AppTest {
     Registration registration = new Registration(0, null, null, null, null, null);
     Module module = new Module(null, "Science", false, null);
     registration.setModule(module);
-    assertEquals(module, registration.getModule());
-    assertEquals("Science", registration.getModule().getName());
+    assertEquals(module, registration.getModule()); // Test 23
+    assertEquals("Science", registration.getModule().getName()); // Test 24
   }
 }

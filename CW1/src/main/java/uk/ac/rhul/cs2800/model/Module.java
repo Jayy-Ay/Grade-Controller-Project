@@ -4,7 +4,7 @@ package uk.ac.rhul.cs2800.model;
 public class Module extends Registration {
   private String code;
   private String name;
-  private boolean mnc; // ie. mandatory non-condonable
+  private boolean mandatoryNonCondonable; // ie. mnc
   private Grade grade;
 
   /**
@@ -12,15 +12,15 @@ public class Module extends Registration {
    *
    * @param code The code for the module.
    * @param name The name of the module.
-   * @param mnc Also known as mandatory non-condonable.
+   * @param mandatoryNonCondonable Also known as mnc.
    * @param grade The gradefor the module.
    * 
    */
-  public Module(String code, String name, boolean mnc, Grade grade) {
+  public Module(String code, String name, boolean mandatoryNonCondonable, Grade grade) {
     super(0, null, null, null, null, null);
     this.code = code;
     this.name = name;
-    this.mnc = mnc;
+    this.mandatoryNonCondonable = mandatoryNonCondonable;
     this.grade = grade;
   }
 

@@ -9,11 +9,11 @@ public class Grade extends Module {
    *
    * @param code The code for the module.
    * @param name The name of the module.
-   * @param mnc Also known as mandatory non-condonable.
+   * @param mandatoryNonCondonable Also known as mnc.
    * @param score The score of the grade.
    */
-  public Grade(String code, String name, boolean mnc, int score) {
-    super(code, name, mnc, null);
+  public Grade(String code, String name, boolean mandatoryNonCondonable, int score) {
+    super(code, name, mandatoryNonCondonable, null);
     this.score = score;
   }
 
