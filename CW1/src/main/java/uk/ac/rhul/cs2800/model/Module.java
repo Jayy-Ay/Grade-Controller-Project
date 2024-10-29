@@ -4,16 +4,16 @@ package uk.ac.rhul.cs2800.model;
 public class Module extends Registration {
   private String code;
   private String name;
-  private boolean mnc;
+  private boolean mnc; // ie. mandatory non-condonable
   private Grade grade;
 
   /**
    * Constructors.
    * 
-   * @param code.
-   * @param name.
-   * @param mnc (ie. mandatory non-condonable).
-   * @param grade.
+   * @param code
+   * @param name
+   * @param mnc
+   * @param grade
    */
   public Module(String code, String name, boolean mnc, Grade grade) {
     super(0, null, null, null, null, null);

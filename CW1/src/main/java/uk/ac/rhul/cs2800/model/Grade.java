@@ -7,10 +7,10 @@ public class Grade extends Module {
   /**
    * Constructors.
    * 
-   * @param code.
-   * @param name.
-   * @param mnc.
-   * @param score.
+   * @param code
+   * @param name
+   * @param mnc
+   * @param score
    */
   public Grade(String code, String name, boolean mnc, int score) {
     super(code, name, mnc, null);

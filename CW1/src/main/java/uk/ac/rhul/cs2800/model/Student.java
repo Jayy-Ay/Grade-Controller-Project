@@ -18,12 +18,11 @@ public class Student {
   /**
    * Constructors.
    * 
-   * @param grades.
-   * @param long id.
-   * @param String firstName.
-   * @param String lastName.
-   * @param String userName.
-   * @param String email.
+   * @param id
+   * @param firstName
+   * @param lastName
+   * @param userName
+   * @param email
    */
   public Student(long id, String firstName, String lastName, String userName, String email) {
     this.id = id;
@@ -32,6 +31,7 @@ public class Student {
     this.userName = userName;
     this.email = email;
     this.grades = new ArrayList<Grade>();
+    this.registrations = new ArrayList<Registration>();
   }
 
   /**
