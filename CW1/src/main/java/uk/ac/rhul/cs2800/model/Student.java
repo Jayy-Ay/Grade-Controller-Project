@@ -18,9 +18,12 @@ public class Student {
   /**
    * Constructors.
    * 
-   * @param grades
-   * @param long id, String firstName, String lastName, String userName, String email, List<Grade>
-   *        grades
+   * @param grades.
+   * @param long id.
+   * @param String firstName.
+   * @param String lastName.
+   * @param String userName.
+   * @param String email.
    */
   public Student(long id, String firstName, String lastName, String userName, String email) {
     this.id = id;
@@ -49,7 +52,7 @@ public class Student {
   }
 
   /**
-   * Add and save the student's grade.
+   * Add and save the student's grade into a list of grades.
    * 
    * @param grade the student's grade that they got.
    */
@@ -58,16 +61,22 @@ public class Student {
   }
 
   /**
+   * Get the grade of the student via. the module. TODO: Make it go through registration??.
+   * 
    * @param module the module that the student took.
    * @return the grade for the student.
    * @exception NoGradeAvailableException If no grade is available/grade doesn't exist.
+   * @exception NoRegistrationException If a user try to access grades for unregistered modules.
    */
-  public Grade getGrade(Module module) throws NoGradeAvailableException {
+  public Grade getGrade(Module module) throws NoGradeAvailableException, NoRegistrationException {
     return module.getGrade();
   }
 
   /**
+   * Register the student with the module.
+   * 
    * @param module the module that the student is taking.
+   * @exception NoRegistrationException If a user try to access grades for unregistered modules.
    */
   public void registerModule(Module module) throws NoRegistrationException {
     Registration registation =

@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import uk.ac.rhul.cs2800.exception.NoGradeAvailableException;
 import uk.ac.rhul.cs2800.exception.NoRegistrationException;
 
-/** Unit test for simple App. */
+/** Unit tests. Testing methods and exceptions. */
 public class AppTest {
 
   Student student;
@@ -19,9 +19,9 @@ public class AppTest {
   }
 
   /**
-   * Gets the average of all the scores the student has (in a certain module).
+   * Gets the average of all the Grade scores the student has (in a certain module).
    * 
-   * @throws NoGradeAvailableException
+   * @throws NoGradeAvailableException If no grade is available/grade doesn't exist.
    */
   @Test
   void computeAverageTest() throws NoGradeAvailableException {
@@ -39,7 +39,11 @@ public class AppTest {
     assertEquals(2, student.computeAverage());
   }
 
-  /** Check if you actually add the grade of the student you assigned it to. */
+  /**
+   * Check if grades are actually added.
+   * 
+   * @throws NoGradeAvailableException.
+   */
   @Test
   void addGradeTest() throws NoGradeAvailableException {
     student.addGrade(new Grade(null, null, false, 10));
@@ -50,9 +54,14 @@ public class AppTest {
     assertEquals(99, student.grades.get(1).getScore());
   }
 
-  /** Check if you actually get the grade of the student you assigned it to. */
+  /**
+   * Check if you actually get the grade of the student you assigned it to.
+   * 
+   * @throws NoGradeAvailableException If no grade is available/grade doesn't exist.
+   * @throws NoRegistrationException If a user try to access grades for unregistered modules.
+   */
   @Test
-  void getGradeTest() throws NoGradeAvailableException {
+  void getGradeTest() throws NoGradeAvailableException, NoRegistrationException {
     Grade grade = new Grade(null, null, false, 10); // Make grade with score "10"
     Module module = new Module(null, null, false, grade); // Put grade inside module
     student.addGrade(grade);
@@ -61,20 +70,33 @@ public class AppTest {
     assertEquals(10, actualGrade.getScore());
   }
 
-  /** Check if you actually get to register of the student to the module. */
+  /**
+   * Check if you actually get to register the student to the module. TODO Make the Test Work Then
+   * Work On Method.
+   * 
+   * @throws NoGradeAvailableException If no grade is available/grade doesn't exist.
+   */
   @Test
   void getRegistrationTest() throws NoRegistrationException {
     Module module = new Module(null, "Maths", false, null);
     student.registerModule(module);
-    assertEquals(student)
+    assertEquals(student);
   }
 
+  /**
+   * Check if the exception is working as intended. Relates to: If no grade is available/grade
+   * doesn't exist.
+   */
   @Test
   void NoGradeAvailableException() {
     assertThrows(NoGradeAvailableException.class, () -> {
     });
   }
 
+  /**
+   * Check if the exception is working as intended. Relates to: If a user try to access grades for
+   * unregistered modules.
+   */
   @Test
   void NoRegistrationException() {
     assertThrows(NoRegistrationException.class, () -> {

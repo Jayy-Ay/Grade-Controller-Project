@@ -4,21 +4,28 @@ package uk.ac.rhul.cs2800.model;
 public class Grade extends Module {
   private int score;
 
-  /** Constructors. */
+  /**
+   * Constructors.
+   * 
+   * @param code.
+   * @param name.
+   * @param mnc.
+   * @param score.
+   */
   public Grade(String code, String name, boolean mnc, int score) {
     super(code, name, mnc, null);
     this.score = score;
   }
 
   /**
-   * @return the score.
+   * @return the score as in integer.
    */
   public int getScore() {
     return score;
   }
 
   /**
-   * @param score the score to set.
+   * @param score the integer score to set.
    */
   public void setScore(int score) {
     this.score = score;
