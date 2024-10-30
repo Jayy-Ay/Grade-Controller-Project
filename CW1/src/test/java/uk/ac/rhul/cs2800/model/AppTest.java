@@ -110,6 +110,12 @@ public class AppTest {
       Module module = new Module(null, "Party", false, null);
       student.getGrade(module);
     });
+    assertThrows(NoRegistrationException.class, () -> { // Test 22
+      Module module1 = new Module(null, "module1", false, null);
+      Module module2 = new Module(null, "module2", false, null);
+      student.registerModule(module1);
+      student.getGrade(module2);
+    });
   }
 
   /**
@@ -119,7 +125,7 @@ public class AppTest {
   void gradeScoreTest() {
     Grade grade = new Grade(null, null, false, 0);
     grade.setScore(5);
-    assertEquals(5, grade.getScore()); // Test 22
+    assertEquals(5, grade.getScore()); // Test 23
   }
 
   /**
@@ -128,9 +134,15 @@ public class AppTest {
   @Test
   void registrationModuleTest() {
     Registration registration = new Registration(0, null, null, null, null, null);
-    Module module = new Module(null, "Science", false, null);
-    registration.setModule(module);
-    assertEquals(module, registration.getModule()); // Test 23
-    assertEquals("Science", registration.getModule().getName()); // Test 24
+    Module module1 = new Module(null, "module1", false, null);
+    Module module2 = new Module(null, "module2", false, null);
+    registration.setModule(module1);
+    registration.setModule(module2);
+    assertEquals(module1, registration.getModule()); // Test 24
+    assertEquals(module2, registration.getModule()); // Test 25
+    assertEquals("module1", registration.getModule().getName()); // Test 26
+    assertEquals("module2", registration.getModule().getName()); // Test 27
+    assertEquals(module1.getName(), registration.getModule().getName()); // Test 28
+    assertEquals(module2.getName(), registration.getModule().getName()); // Test 29
   }
 }

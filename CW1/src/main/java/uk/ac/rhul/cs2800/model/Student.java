@@ -62,7 +62,7 @@ public class Student {
   }
 
   /**
-   * Get the grade of the student via. the module. TODO: Make it go through registration??.
+   * Get the grade of the student via. the module.
    *
    * @param module the module that the student took.
    *
