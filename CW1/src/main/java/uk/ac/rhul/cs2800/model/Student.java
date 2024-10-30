@@ -78,6 +78,8 @@ public class Student {
         } else {
           throw new NoGradeAvailableException();
         }
+      } else {
+        continue;
       }
     }
     throw new NoRegistrationException();
