@@ -62,12 +62,18 @@ public class AppTest {
    */
   @Test
   void getGradeTest() throws NoGradeAvailableException, NoRegistrationException {
-    Grade grade = new Grade(null, null, false, 10); // Make grade with score "10"
-    Module module = new Module(null, null, false, grade); // Put grade inside module
-    student.registerModule(module);
+    Grade grade1 = new Grade(null, null, false, 10);
+    Grade grade2 = new Grade(null, null, false, 5); 
+    Module module1 = new Module(null, "module1", false, grade1); 
+    Module module2 = new Module(null, "module2", false, grade2); 
+    student.registerModule(module1);
+    student.registerModule(module2);
     assertNotNull(student.registrations); // Test 14
     assertNotNull(student.registrations.get(0).getModule()); // Test 15
-    assertEquals(10, student.getGrade(module).getScore()); // Test 16
+    assertEquals("module1", student.registrations.get(0).getModule().getName()); // Test 16
+    assertEquals("module2", student.registrations.get(1).getModule().getName()); // Test 17
+    assertEquals(10, student.getGrade(module1).getScore()); // Test 18
+    assertEquals(5, student.getGrade(module2).getScore()); // Test 19
   }
 
   /**
@@ -80,8 +86,8 @@ public class AppTest {
   void getRegistrationTest() throws NoRegistrationException {
     Module module = new Module(null, "Maths", false, null);
     student.registerModule(module);
-    assertEquals("Maths", module.getName()); // Test 17
-    assertEquals(student.registrations.get(0).getModule().getName(), module.getName()); // Test 18
+    assertEquals("Maths", module.getName()); // Test 20
+    assertEquals(student.registrations.get(0).getModule().getName(), module.getName()); // Test 21
   }
 
   /**
@@ -90,10 +96,10 @@ public class AppTest {
    */
   @Test
   void NoGradeAvailableException() {
-    assertThrows(NoGradeAvailableException.class, () -> { // Test 19
+    assertThrows(NoGradeAvailableException.class, () -> { // Test 22
       student.computeAverage();
     });
-    assertThrows(NoGradeAvailableException.class, () -> { // Test 20
+    assertThrows(NoGradeAvailableException.class, () -> { // Test 23
       Module module = new Module(null, null, false, null);
       student.registerModule(module);
       student.getGrade(module);
@@ -106,11 +112,11 @@ public class AppTest {
    */
   @Test
   void NoRegistrationException() {
-    assertThrows(NoRegistrationException.class, () -> { // Test 21
+    assertThrows(NoRegistrationException.class, () -> { // Test 24
       Module module = new Module(null, "Party", false, null);
       student.getGrade(module);
     });
-    assertThrows(NoRegistrationException.class, () -> { // Test 22
+    assertThrows(NoRegistrationException.class, () -> { // Test 25
       Module module1 = new Module(null, "module1", false, null);
       Module module2 = new Module(null, "module2", false, null);
       student.registerModule(module1);
@@ -125,7 +131,7 @@ public class AppTest {
   void gradeScoreTest() {
     Grade grade = new Grade(null, null, false, 0);
     grade.setScore(5);
-    assertEquals(5, grade.getScore()); // Test 23
+    assertEquals(5, grade.getScore()); // Test 26
   }
 
   /**
@@ -134,15 +140,9 @@ public class AppTest {
   @Test
   void registrationModuleTest() {
     Registration registration = new Registration(0, null, null, null, null, null);
-    Module module1 = new Module(null, "module1", false, null);
-    Module module2 = new Module(null, "module2", false, null);
-    registration.setModule(module1);
-    registration.setModule(module2);
-    assertEquals(module1, registration.getModule()); // Test 24
-    assertEquals(module2, registration.getModule()); // Test 25
-    assertEquals("module1", registration.getModule().getName()); // Test 26
-    assertEquals("module2", registration.getModule().getName()); // Test 27
-    assertEquals(module1.getName(), registration.getModule().getName()); // Test 28
-    assertEquals(module2.getName(), registration.getModule().getName()); // Test 29
+    Module module = new Module(null, "module", false, null);
+    registration.setModule(module);
+    assertEquals("module", registration.getModule().getName()); // Test 27
+    assertEquals(module.getName(), registration.getModule().getName()); // Test 28
   }
 }
