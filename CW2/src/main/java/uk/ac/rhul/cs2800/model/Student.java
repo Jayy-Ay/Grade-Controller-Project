@@ -2,12 +2,20 @@ package uk.ac.rhul.cs2800.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 import uk.ac.rhul.cs2800.exception.NoGradeAvailableException;
 import uk.ac.rhul.cs2800.exception.NoRegistrationException;
 
 /** This contains all the important information of the student. */
+@Entity
 public class Student {
-  private long id;
+
+  @Id
+  @GeneratedValue
+  Long id;
+
   private String firstName;
   private String lastName;
   private String userName;
@@ -94,7 +102,7 @@ public class Student {
    */
   public void registerModule(Module module) throws NoRegistrationException {
     Registration registation =
-        new Registration(id, firstName, lastName, userName, email, module);
+        new Registration(module);
     registrations.add(registation);
   }
 }

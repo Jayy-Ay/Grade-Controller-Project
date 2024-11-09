@@ -26,7 +26,7 @@ public class AppTest {
   @Test
   void computeAverageTest() throws NoGradeAvailableException {
     for (int i = 0; i < 3; i++) {
-      student.addGrade(new Grade(null, null, false, i + 1));
+      student.addGrade(new Grade(i + 1));
     }
     assertNotNull(student.grades.get(0).getScore()); // Test 1
     assertNotNull(student.grades.get(1).getScore()); // Test 2
@@ -46,8 +46,8 @@ public class AppTest {
    */
   @Test
   void addGradeTest() throws NoGradeAvailableException {
-    student.addGrade(new Grade(null, null, false, 10));
-    student.addGrade(new Grade(null, null, false, 99));
+    student.addGrade(new Grade(10));
+    student.addGrade(new Grade(99));
     assertNotNull(student.grades.get(0).getScore()); // Test 10
     assertNotNull(student.grades.get(1).getScore()); // Test 11
     assertEquals(10, student.grades.get(0).getScore()); // Test 12
@@ -62,8 +62,8 @@ public class AppTest {
    */
   @Test
   void getGradeTest() throws NoGradeAvailableException, NoRegistrationException {
-    Grade grade1 = new Grade(null, null, false, 10);
-    Grade grade2 = new Grade(null, null, false, 5); 
+    Grade grade1 = new Grade(10);
+    Grade grade2 = new Grade(5);
     Module module1 = new Module(null, "module1", false, grade1); 
     Module module2 = new Module(null, "module2", false, grade2); 
     student.registerModule(module1);
@@ -129,7 +129,7 @@ public class AppTest {
    */
   @Test
   void gradeScoreTest() {
-    Grade grade = new Grade(null, null, false, 0);
+    Grade grade = new Grade(0);
     grade.setScore(5);
     assertEquals(5, grade.getScore()); // Test 26
   }
@@ -139,7 +139,7 @@ public class AppTest {
    */
   @Test
   void registrationModuleTest() {
-    Registration registration = new Registration(0, null, null, null, null, null);
+    Registration registration = new Registration(null);
     Module module = new Module(null, "module", false, null);
     registration.setModule(module);
     assertEquals("module", registration.getModule().getName()); // Test 27

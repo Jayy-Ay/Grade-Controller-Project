@@ -1,19 +1,18 @@
 package uk.ac.rhul.cs2800.model;
 
+import jakarta.persistence.Entity;
+
 /** This is where the grade of a student in a module is stored alongsided their scores. */
-public class Grade extends Module {
+@Entity
+public class Grade {
   private int score;
 
   /**
    * Constructors.
    *
-   * @param code The code for the module.
-   * @param name The name of the module.
-   * @param mandatoryNonCondonable Also known as mnc.
    * @param score The score of the grade.
    */
-  public Grade(String code, String name, boolean mandatoryNonCondonable, int score) {
-    super(code, name, mandatoryNonCondonable, null);
+  public Grade(int score) {
     this.score = score;
   }
 
