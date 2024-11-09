@@ -101,8 +101,7 @@ public class Student {
    * @exception NoRegistrationException If a user try to access grades for unregistered modules.
    */
   public void registerModule(Module module) throws NoRegistrationException {
-    Registration registation =
-        new Registration(module);
+    Registration registation = new Registration(module);
     registrations.add(registation);
   }
 }
