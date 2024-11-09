@@ -1,33 +1,41 @@
-DROP TABLE student IF EXISTS
-DROP TABLE grade IF EXISTS
-DROP TABLE module IF EXISTS
-DROP TABLE registration IF EXISTS
+DROP TABLE IF EXISTS grade;
+DROP TABLE IF EXISTS registration;
+DROP TABLE IF EXISTS student;
+DROP TABLE IF EXISTS module;
+
 
 CREATE TABLE student(
-  id SERIAL PRIMARY KEY,
-  firstName VARCHAR(200),
-  lastName VARCHAR(200),
-  userName VARCHAR(200),
-  email VARCHAR(200)
-  );
+  id INT PRIMARY KEY,
+  firstName VARCHAR(30),
+  lastName VARCHAR(30),
+  username VARCHAR(30),
+  email VARCHAR(50)
+);
+
+CREATE TABLE module(
+  code VARCHAR(10) PRIMARY KEY,
+  name VARCHAR(100),
+  mnc BOOLEAN
+);
 
 CREATE TABLE grade(
   id SERIAL PRIMARY KEY,
-  student VARCHAR(200),
   score INT,
-  FOREIGN KEY (id)
-    REFERENCES student (id)
-    );
+  student_id INT,
+  module_code VARCHAR(10),
+  FOREIGN KEY (student_id)
+    REFERENCES student (id),
+  FOREIGN KEY (module_code)
+    REFERENCES module (code)
+);
 
-CREATE TABLE module(
-  code VARCHAR(200),
-  name VARCHAR(200),
-  mandatoryNonCondonable VARCHAR(200)
-  );
 
 CREATE TABLE registration(
   id SERIAL PRIMARY KEY,
-  student VARCHAR(200),
-  FOREIGN KEY (id)
-    REFERENCES student (id)
-    );
+  student_id INT,
+  module_code VARCHAR(10),
+  FOREIGN KEY (student_id)
+    REFERENCES student (id),
+  FOREIGN KEY (module_code)
+    REFERENCES module (code)
+);
