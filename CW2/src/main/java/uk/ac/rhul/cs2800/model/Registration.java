@@ -5,12 +5,11 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 
 /** This is for the student to register. */
 @Entity
 public class Registration {
-  private Module module;
-
   @Id
   @GeneratedValue
   Long id;
@@ -18,6 +17,12 @@ public class Registration {
   @ManyToOne
   @JoinColumn(name = "student_id")
   Student student;
+
+  @OneToOne
+  @JoinColumn(name = "module_id")
+  Module module;
+
+  private String module_code;
 
   /**
    * Constructors.

@@ -5,6 +5,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 
 /** This is where the grade of a student in a module is stored alongsided their scores. */
 @Entity
@@ -18,6 +19,10 @@ public class Grade {
   @ManyToOne
   @JoinColumn(name = "student_id")
   Student student;
+
+  @OneToOne
+  @JoinColumn(name = "module_id")
+  Module module;
 
   /**
    * Constructors.

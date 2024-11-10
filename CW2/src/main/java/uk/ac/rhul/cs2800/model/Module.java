@@ -1,14 +1,23 @@
 package uk.ac.rhul.cs2800.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 
 /** This is a module that would contain the grade of the student. */
 @Entity
 public class Module {
-  private String code;
+
+  @Id
+  @GeneratedValue
+  String code;
+
   private String name;
-  private boolean mandatoryNonCondonable; // ie. mnc
-  private Grade grade;
+  private boolean mnc; // ie. mandatory non codonable.
+
+  @OneToOne
+  Grade grade;
 
   /**
    * Constructors.
@@ -21,7 +30,7 @@ public class Module {
   public Module(String code, String name, boolean mandatoryNonCondonable, Grade grade) {
     this.code = code;
     this.name = name;
-    this.mandatoryNonCondonable = mandatoryNonCondonable;
+    this.mnc = mandatoryNonCondonable;
     this.grade = grade;
   }
 
