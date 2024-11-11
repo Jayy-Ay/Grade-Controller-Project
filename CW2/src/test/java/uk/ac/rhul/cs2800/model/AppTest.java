@@ -64,8 +64,8 @@ public class AppTest {
   void getGradeTest() throws NoGradeAvailableException, NoRegistrationException {
     Grade grade1 = new Grade(10);
     Grade grade2 = new Grade(5);
-    Module module1 = new Module(null, "module1", false, grade1); 
-    Module module2 = new Module(null, "module2", false, grade2); 
+    Module module1 = new Module(null, "module1", false, grade1);
+    Module module2 = new Module(null, "module2", false, grade2);
     student.registerModule(module1);
     student.registerModule(module2);
     assertNotNull(student.registrations); // Test 14
