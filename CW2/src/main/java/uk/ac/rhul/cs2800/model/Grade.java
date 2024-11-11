@@ -21,7 +21,7 @@ public class Grade {
   Student student;
 
   @OneToOne
-  @JoinColumn(name = "module_id")
+  @JoinColumn(name = "module_code")
   Module module;
 
   /**

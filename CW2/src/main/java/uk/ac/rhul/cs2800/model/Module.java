@@ -30,7 +30,7 @@ public class Module {
   public Module(String code, String name, boolean mandatoryNonCondonable, Grade grade) {
     this.code = code;
     this.name = name;
-    this.mnc = mandatoryNonCondonable;
+    this.mnc = mnc;
     this.grade = grade;
   }
 

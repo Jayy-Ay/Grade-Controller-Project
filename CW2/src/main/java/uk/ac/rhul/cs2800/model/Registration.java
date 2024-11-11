@@ -20,10 +20,8 @@ public class Registration {
   Student student;
 
   @OneToOne
-  @JoinColumn(name = "module_id")
+  @JoinColumn(name = "module_code")
   Module module;
-
-  private String module_code;
 
   /**
    * Constructors.
