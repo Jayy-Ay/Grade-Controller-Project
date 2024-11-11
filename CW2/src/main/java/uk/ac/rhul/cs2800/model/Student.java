@@ -1,10 +1,11 @@
 package uk.ac.rhul.cs2800.model;
 
+import java.util.ArrayList;
+import java.util.List;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
-import java.util.ArrayList;
-import java.util.List;
+import jakarta.persistence.OneToMany;
 import uk.ac.rhul.cs2800.exception.NoGradeAvailableException;
 import uk.ac.rhul.cs2800.exception.NoRegistrationException;
 
@@ -20,7 +21,11 @@ public class Student {
   private String lastName;
   private String userName;
   private String email;
+
+  @OneToMany
   List<Grade> grades;
+
+  @OneToMany
   List<Registration> registrations;
 
   /**
