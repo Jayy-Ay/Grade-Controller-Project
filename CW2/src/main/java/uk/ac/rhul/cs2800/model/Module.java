@@ -1,7 +1,6 @@
 package uk.ac.rhul.cs2800.model;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToOne;
 
@@ -10,7 +9,6 @@ import jakarta.persistence.OneToOne;
 public class Module {
 
   @Id
-  @GeneratedValue
   String code;
 
   private String name;
