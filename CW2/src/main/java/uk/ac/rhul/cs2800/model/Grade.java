@@ -50,4 +50,13 @@ public class Grade {
   public void setScore(int score) {
     this.score = score;
   }
+
+  /**
+   * Set the module for this grade.
+   *
+   * @param module relating to the grade to set.
+   */
+  public void setModule(Module module) {
+    this.module = module;
+  }
 }
