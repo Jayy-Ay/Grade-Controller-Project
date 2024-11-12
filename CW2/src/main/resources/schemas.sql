@@ -16,7 +16,7 @@ CREATE TABLE module(
   code VARCHAR(10) PRIMARY KEY,
   name VARCHAR(100),
   mnc BOOLEAN
-);
+);S
 
 CREATE TABLE grade(
   id SERIAL PRIMARY KEY,
