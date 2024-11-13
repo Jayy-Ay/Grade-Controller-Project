@@ -10,22 +10,27 @@ import uk.ac.rhul.cs2800.model.Module;
 import uk.ac.rhul.cs2800.model.Student;
 import uk.ac.rhul.cs2800.repository.GradeRepository;
 import uk.ac.rhul.cs2800.repository.ModuleRepository;
-import uk.ac.rhul.cs2800.repository.RegistrationRepository;
 import uk.ac.rhul.cs2800.repository.StudentRepository;
 
 /**
- * Controller.
+ * Grade controller manages grade instances.
  */
 public class GradeController {
 
   private final GradeRepository gradeRepository;
-  private final RegistrationRepository registrationRepository;
   private final StudentRepository studentRepository;
   private final ModuleRepository moduleRepository;
 
-  public GradeController(GradeRepository gradeRepository, RegistrationRepository registrationRepository, StudentRepository studentRepository, ModuleRepository moduleRepository) {
+  /**
+   * Constructors.
+   *
+   * @param gradeRepository stores all grade instances.
+   * @param studentRepository stores all student instances.
+   * @param moduleRepository stores all module instances.
+   */
+  public GradeController(GradeRepository gradeRepository, StudentRepository studentRepository,
+      ModuleRepository moduleRepository) {
     this.gradeRepository = gradeRepository;
-    this.registrationRepository = registrationRepository;
     this.studentRepository = studentRepository;
     this.moduleRepository = moduleRepository;
   }
@@ -33,22 +38,22 @@ public class GradeController {
   /**
    * Learning Notes: @RestContoller defines API endpoints, @PostMapping sends a POST request to
    * /grades/addGrade. Also has Get/Put/Delete Mapping.
-   * 
-   * @param params the parameter.
-   * @return null as in nothing.
+   *
+   * @param params should contain student_id, module_code and score.
+   * @return saved grade instance.
    */
-  @PostMapping(value="/grade/addGrade")
+  @PostMapping(value = "/grade/addGrade")
   public ResponseEntity<Grade> addRate(@RequestBody Map<String, String> params) {
-    // Find the student by using student_id
+    // Find the student by using student_id.
     Student student =
         studentRepository.findById(Long.valueOf(params.get("student_id"))).orElseThrow();
 
-    // Find the module by using the module_code
+    // Find the module by using the module_code.
     Module module =
         moduleRepository.findById(Long.valueOf(params.get("module_code"))).orElseThrow();
 
-    // Create a Grade object and set all values
-    Grade grade = new Grade(0);
+    // Create a Grade object and set all values.
+    Grade grade = new Grade(null);
     grade.setScore(Integer.valueOf(params.get("score")));
     grade.setModule(module);
 

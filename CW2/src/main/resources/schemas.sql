@@ -1,7 +1,7 @@
-DROP TABLE IF EXISTS grade;
-DROP TABLE IF EXISTS registration;
-DROP TABLE IF EXISTS student;
-DROP TABLE IF EXISTS module;
+DROP TABLE IF EXISTS grade cascade;
+DROP TABLE IF EXISTS registration cascade;
+DROP TABLE IF EXISTS student cascade;
+DROP TABLE IF EXISTS module cascade;
 
 
 CREATE TABLE student(
@@ -16,7 +16,7 @@ CREATE TABLE module(
   code VARCHAR(10) PRIMARY KEY,
   name VARCHAR(100),
   mnc BOOLEAN
-);S
+);
 
 CREATE TABLE grade(
   id SERIAL PRIMARY KEY,

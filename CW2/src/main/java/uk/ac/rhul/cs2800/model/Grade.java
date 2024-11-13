@@ -10,8 +10,6 @@ import jakarta.persistence.OneToOne;
 /** This is where the grade of a student in a module is stored alongsided their scores. */
 @Entity
 public class Grade {
-  private int score;
-
   @Id
   @GeneratedValue
   Long id;
@@ -24,12 +22,14 @@ public class Grade {
   @JoinColumn(name = "module_code")
   Module module;
 
+  Integer score; // 'int' not used because 'Integer' allows null value.
+
   /**
    * Constructors.
    *
    * @param score The score of the grade.
    */
-  public Grade(int score) {
+  public Grade(Integer score) {
     this.score = score;
   }
 
@@ -38,7 +38,7 @@ public class Grade {
    *
    * @return the score as in integer.
    */
-  public int getScore() {
+  public Integer getScore() {
     return score;
   }
 
@@ -47,7 +47,7 @@ public class Grade {
    *
    * @param score the integer score to set.
    */
-  public void setScore(int score) {
+  public void setScore(Integer score) {
     this.score = score;
   }
 
