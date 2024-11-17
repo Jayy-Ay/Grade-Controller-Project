@@ -12,10 +12,14 @@ import uk.ac.rhul.cs2800.exception.NoRegistrationException;
 public class AppTest {
 
   Student student;
+  Module module;
+  Grade grade;
 
   @BeforeEach
   void beforeEach() {
     student = new Student(0, null, null, null, null);
+    module = new Module(null, "Math", false, null);
+    grade = new Grade(100);
   }
 
   /**
@@ -62,10 +66,8 @@ public class AppTest {
    */
   @Test
   void getGradeTest() throws NoGradeAvailableException, NoRegistrationException {
-    Grade grade1 = new Grade(10);
-    Grade grade2 = new Grade(5);
-    Module module1 = new Module(null, "module1", false, grade1);
-    Module module2 = new Module(null, "module2", false, grade2);
+    Module module1 = new Module(null, "module1", false, new Grade(10));
+    Module module2 = new Module(null, "module2", false, new Grade(5));
     student.registerModule(module1);
     student.registerModule(module2);
     assertNotNull(student.registrations); // Test 14
@@ -84,9 +86,8 @@ public class AppTest {
    */
   @Test
   void getRegistrationTest() throws NoRegistrationException {
-    Module module = new Module(null, "Maths", false, null);
     student.registerModule(module);
-    assertEquals("Maths", module.getName()); // Test 20
+    assertEquals("Math", module.getName()); // Test 20
     assertEquals(student.registrations.get(0).getModule().getName(), module.getName()); // Test 21
   }
 
@@ -113,7 +114,6 @@ public class AppTest {
   @Test
   void NoRegistrationException() {
     assertThrows(NoRegistrationException.class, () -> { // Test 24
-      Module module = new Module(null, "Party", false, null);
       student.getGrade(module);
     });
     assertThrows(NoRegistrationException.class, () -> { // Test 25
@@ -129,7 +129,6 @@ public class AppTest {
    */
   @Test
   void gradeScoreTest() {
-    Grade grade = new Grade(0);
     grade.setScore(5);
     assertEquals(5, grade.getScore()); // Test 26
   }
@@ -140,9 +139,8 @@ public class AppTest {
   @Test
   void registrationModuleTest() {
     Registration registration = new Registration(null);
-    Module module = new Module(null, "module", false, null);
     registration.setModule(module);
-    assertEquals("module", registration.getModule().getName()); // Test 27
+    assertEquals("Math", registration.getModule().getName()); // Test 27
     assertEquals(module.getName(), registration.getModule().getName()); // Test 28
   }
 }
