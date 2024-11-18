@@ -60,7 +60,7 @@ public class GradeController {
     grade.setModule(module);
 
     // Save the Grade object.
-    gradeRepository.save(grade);
+    grade = gradeRepository.save(grade);
 
     // Return the saved Grade object.
     return ResponseEntity.ok(grade);
