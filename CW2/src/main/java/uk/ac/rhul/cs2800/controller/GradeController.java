@@ -2,6 +2,7 @@
 package uk.ac.rhul.cs2800.controller;
 
 import java.util.Map;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,6 +16,7 @@ import uk.ac.rhul.cs2800.repository.StudentRepository;
 /**
  * Grade controller manages grade instances.
  */
+@SpringBootApplication
 public class GradeController {
 
   private final GradeRepository gradeRepository;
