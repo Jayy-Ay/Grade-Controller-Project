@@ -44,8 +44,8 @@ public class GradeController {
    * @param params should contain student_id, module_code and score.
    * @return saved grade instance.
    */
-  @PostMapping(value = "/grade/addGrade")
-  public ResponseEntity<Grade> addRate(@RequestBody Map<String, String> params) {
+  @PostMapping(value = "/grades/addGrade")
+  public ResponseEntity<Grade> addGrade(@RequestBody Map<String, String> params) {
     // Find the student by using student_id.
     Student student =
         studentRepository.findById(Long.valueOf(params.get("student_id"))).orElseThrow();
