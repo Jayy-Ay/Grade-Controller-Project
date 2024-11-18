@@ -53,7 +53,7 @@ public class GradeController {
         moduleRepository.findById(Long.valueOf(params.get("module_code"))).orElseThrow();
 
     // Create a Grade object and set all values.
-    Grade grade = new Grade(null);
+    Grade grade = new Grade(0);
     grade.setScore(Integer.valueOf(params.get("score")));
     grade.setModule(module);
 
