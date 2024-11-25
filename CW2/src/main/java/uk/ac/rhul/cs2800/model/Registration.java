@@ -1,23 +1,40 @@
 package uk.ac.rhul.cs2800.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
+
 /** This is for the student to register. */
-public class Registration extends Student {
-  private Module module;
+@Entity
+public class Registration {
+  @Id
+  @GeneratedValue
+  Long id;
+
+  @ManyToOne
+  @JoinColumn(name = "student_id")
+  Student student;
+
+  @OneToOne
+  @JoinColumn(name = "module_code")
+  Module module;
 
   /**
    * Constructors.
    *
-   * @param id The primary key of student.
-   * @param firstName The first half of the student's name.
-   * @param lastName The last half of the student's name.
-   * @param userName The identifying username.
-   * @param email The student's email.
    * @param module The student is registering.
    */
-  public Registration(long id, String firstName, String lastName, String userName, String email,
-      Module module) {
-    super(id, firstName, lastName, userName, email);
+  public Registration(Module module) {
     this.module = module;
+  }
+
+  /**
+   * Empty Contructor for Springboot.
+   */
+  public Registration() {
   }
 
   /**

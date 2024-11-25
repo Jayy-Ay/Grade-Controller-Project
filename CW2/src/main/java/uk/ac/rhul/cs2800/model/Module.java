@@ -1,27 +1,42 @@
 package uk.ac.rhul.cs2800.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
+
 /** This is a module that would contain the grade of the student. */
-public class Module extends Registration {
-  private String code;
-  private String name;
-  private boolean mandatoryNonCondonable; // ie. mnc
-  private Grade grade;
+@Entity
+public class Module {
+  @Id
+  String code;
+
+  String name;
+
+  boolean mnc; // ie. mandatory non codonable.
+
+  @OneToOne
+  Grade grade;
 
   /**
    * Constructors.
    *
    * @param code The code for the module.
    * @param name The name of the module.
-   * @param mandatoryNonCondonable Also known as mnc.
+   * @param mnc Also known as mnc.
    * @param grade The gradefor the module.
-   * 
    */
-  public Module(String code, String name, boolean mandatoryNonCondonable, Grade grade) {
-    super(0, null, null, null, null, null);
+  public Module(String code, String name, boolean mandatoryNonCondonable, Grade grade,
+      boolean mnc) {
     this.code = code;
     this.name = name;
-    this.mandatoryNonCondonable = mandatoryNonCondonable;
+    this.mnc = mnc;
     this.grade = grade;
+  }
+
+  /**
+   * Empty Contructor for Springboot.
+   */
+  public Module() {
   }
 
   /**
@@ -30,7 +45,7 @@ public class Module extends Registration {
    * @return this grade.
    */
   public Grade getGrade() {
-    return this.grade;
+    return grade;
   }
 
   /**

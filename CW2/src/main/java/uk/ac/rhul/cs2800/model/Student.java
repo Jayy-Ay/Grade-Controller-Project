@@ -2,17 +2,30 @@ package uk.ac.rhul.cs2800.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import uk.ac.rhul.cs2800.exception.NoGradeAvailableException;
 import uk.ac.rhul.cs2800.exception.NoRegistrationException;
 
 /** This contains all the important information of the student. */
+@Entity
 public class Student {
-  private long id;
-  private String firstName;
-  private String lastName;
-  private String userName;
-  private String email;
+  @Id
+  Long id;
+
+  String firstName;
+
+  String lastName;
+
+  String userName;
+
+  String email;
+
+  @OneToMany(mappedBy = "student") // TODO add mappedBy to other variables if necessary
   List<Grade> grades;
+
+  @OneToMany
   List<Registration> registrations;
 
   /**
@@ -32,6 +45,12 @@ public class Student {
     this.email = email;
     this.grades = new ArrayList<Grade>();
     this.registrations = new ArrayList<Registration>();
+  }
+
+  /**
+   * Empty Contructor for Springboot.
+   */
+  public Student() {
   }
 
   /**
@@ -93,8 +112,7 @@ public class Student {
    * @exception NoRegistrationException If a user try to access grades for unregistered modules.
    */
   public void registerModule(Module module) throws NoRegistrationException {
-    Registration registation =
-        new Registration(id, firstName, lastName, userName, email, module);
+    Registration registation = new Registration(module);
     registrations.add(registation);
   }
 }

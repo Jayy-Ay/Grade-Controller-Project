@@ -1,20 +1,42 @@
 package uk.ac.rhul.cs2800.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
+
 /** This is where the grade of a student in a module is stored alongsided their scores. */
-public class Grade extends Module {
-  private int score;
+@Entity
+public class Grade {
+  @Id
+  @GeneratedValue
+  Long id;
+
+  @ManyToOne
+  @JoinColumn(name = "student_id")
+  Student student;
+
+  @OneToOne
+  @JoinColumn(name = "module_code")
+  Module module;
+
+  Integer score; // 'int' not used because 'Integer' allows null value.
 
   /**
    * Constructors.
    *
-   * @param code The code for the module.
-   * @param name The name of the module.
-   * @param mandatoryNonCondonable Also known as mnc.
    * @param score The score of the grade.
    */
-  public Grade(String code, String name, boolean mandatoryNonCondonable, int score) {
-    super(code, name, mandatoryNonCondonable, null);
+  public Grade(Integer score) {
     this.score = score;
+  }
+
+  /**
+   * Empty Contructor for Springboot.
+   */
+  public Grade() {
   }
 
   /**
@@ -22,7 +44,7 @@ public class Grade extends Module {
    *
    * @return the score as in integer.
    */
-  public int getScore() {
+  public Integer getScore() {
     return score;
   }
 
@@ -31,7 +53,16 @@ public class Grade extends Module {
    *
    * @param score the integer score to set.
    */
-  public void setScore(int score) {
+  public void setScore(Integer score) {
     this.score = score;
+  }
+
+  /**
+   * Set the module for this grade.
+   *
+   * @param module relating to the grade to set.
+   */
+  public void setModule(Module module) {
+    this.module = module;
   }
 }
