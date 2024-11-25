@@ -25,8 +25,7 @@ public class Module {
    * @param mnc Also known as mnc.
    * @param grade The gradefor the module.
    */
-  public Module(String code, String name, boolean mandatoryNonCondonable, Grade grade,
-      boolean mnc) {
+  public Module(String code, String name, boolean mnc, Grade grade) {
     this.code = code;
     this.name = name;
     this.mnc = mnc;

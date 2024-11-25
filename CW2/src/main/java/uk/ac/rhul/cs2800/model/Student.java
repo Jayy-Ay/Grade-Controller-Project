@@ -25,7 +25,7 @@ public class Student {
   @OneToMany(mappedBy = "student") // TODO add mappedBy to other variables if necessary
   List<Grade> grades;
 
-  @OneToMany
+  @OneToMany(mappedBy = "student")
   List<Registration> registrations;
 
   /**
@@ -114,5 +114,14 @@ public class Student {
   public void registerModule(Module module) throws NoRegistrationException {
     Registration registation = new Registration(module);
     registrations.add(registation);
+  }
+
+  /**
+   * Returns the id of the student.
+   *
+   * @return id the student id
+   */
+  public Long getId() {
+    return this.id;
   }
 }

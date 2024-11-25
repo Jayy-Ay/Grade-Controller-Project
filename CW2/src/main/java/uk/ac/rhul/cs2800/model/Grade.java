@@ -65,4 +65,8 @@ public class Grade {
   public void setModule(Module module) {
     this.module = module;
   }
+
+  public void setStudent(Student student) {
+    this.student = student;
+  }
 }
