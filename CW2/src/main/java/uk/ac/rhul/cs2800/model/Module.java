@@ -1,11 +1,22 @@
 package uk.ac.rhul.cs2800.model;
 
-/** This is a module that would contain the grade of the student. */
-public class Module extends Registration {
-  private String code;
-  private String name;
-  private boolean mandatoryNonCondonable; // ie. mnc
-  private Grade grade;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
+
+// This is a module that would contain the grade of the student.
+@Entity
+public class Module {
+
+  @Id
+  String code;
+
+  String name;
+
+  boolean mnc; // ie. mandatory non codonable.
+
+  @OneToOne
+  Grade grade;
 
   /**
    * Constructors.
@@ -14,15 +25,16 @@ public class Module extends Registration {
    * @param name The name of the module.
    * @param mandatoryNonCondonable Also known as mnc.
    * @param grade The gradefor the module.
-   * 
    */
-  public Module(String code, String name, boolean mandatoryNonCondonable, Grade grade) {
-    super(0, null, null, null, null, null);
+  public Module(String code, String name, boolean mnc, Grade grade) {
     this.code = code;
     this.name = name;
-    this.mandatoryNonCondonable = mandatoryNonCondonable;
+    this.mnc = mnc;
     this.grade = grade;
   }
+
+  // Empty Method for GradeCrontroller.
+  public Module() {}
 
   /**
    * Get the grade of the student in this particular module.
@@ -30,7 +42,7 @@ public class Module extends Registration {
    * @return this grade.
    */
   public Grade getGrade() {
-    return this.grade;
+    return grade;
   }
 
   /**

@@ -2,17 +2,28 @@ package uk.ac.rhul.cs2800.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import uk.ac.rhul.cs2800.exception.NoGradeAvailableException;
 import uk.ac.rhul.cs2800.exception.NoRegistrationException;
 
-/** This contains all the important information of the student. */
+// This contains all the important information of the student.
+@Entity
 public class Student {
-  private long id;
+
+  @Id
+  Long id;
+
   private String firstName;
   private String lastName;
   private String userName;
   private String email;
+
+  @OneToMany(mappedBy = "student")
   List<Grade> grades;
+
+  @OneToMany(mappedBy = "student")
   List<Registration> registrations;
 
   /**
@@ -38,8 +49,7 @@ public class Student {
    * Take all grade scores of the student and calculate the average.
    *
    * @return the average score of the student as a float.
-   *
-   * @exception NoGradeAvailableException If no grade is available/grade doesn't exist.
+   * @throws NoGradeAvailableException If no grade is available/grade doesn't exist.
    */
   public float computeAverage() throws NoGradeAvailableException {
     if (grades.size() < 1) {
@@ -65,10 +75,9 @@ public class Student {
    * Get the grade of the student via. the module.
    *
    * @param module the module that the student took.
-   *
    * @return the grade for the student.
-   * @exception NoGradeAvailableException If no grade is available/grade doesn't exist.
-   * @exception NoRegistrationException If a user try to access grades for unregistered modules.
+   * @throws NoGradeAvailableException If no grade is available/grade doesn't exist.
+   * @throws NoRegistrationException If a user try to access grades for unregistered modules.
    */
   public Grade getGrade(Module module) throws NoGradeAvailableException, NoRegistrationException {
     for (Registration registration : registrations) {
@@ -89,12 +98,10 @@ public class Student {
    * Register the student with the module.
    *
    * @param module the module that the student is taking.
-   *
-   * @exception NoRegistrationException If a user try to access grades for unregistered modules.
+   * @throws NoRegistrationException If a user try to access grades for unregistered modules.
    */
   public void registerModule(Module module) throws NoRegistrationException {
-    Registration registation =
-        new Registration(id, firstName, lastName, userName, email, module);
+    Registration registation = new Registration(module);
     registrations.add(registation);
   }
 }
