@@ -18,6 +18,10 @@ public class ExceptionTest {
     module = new Module(null, "Math", false, null);
     grade = new Grade(100);
   }
+<<<<<<< HEAD
+
+=======
+>>>>>>> 04f662e6cb672b356e326289eec04f43bc0ca7d7
   /**
    * Check if the exception is working as intended. Relates to: If no grade is available/grade
    * doesn't exist.

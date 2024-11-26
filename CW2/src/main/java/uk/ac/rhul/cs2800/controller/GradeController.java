@@ -54,6 +54,7 @@ public class GradeController {
     Grade grade = new Grade(0);
     grade.setScore(Integer.valueOf(params.get("score")));
     grade.setModule(module);
+    grade.setStudent(student);
 
     // Save and return the Grade object.
     grade = gradeRepository.save(grade);
