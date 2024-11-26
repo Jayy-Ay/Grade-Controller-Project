@@ -18,20 +18,16 @@ public class ExceptionTest {
     module = new Module(null, "Math", false, null);
     grade = new Grade(100);
   }
-<<<<<<< HEAD
 
-=======
->>>>>>> 04f662e6cb672b356e326289eec04f43bc0ca7d7
   /**
-   * Check if the exception is working as intended. Relates to: If no grade is available/grade
-   * doesn't exist.
+   * Check if the exception works. Related: If no grade is available/grade doesn't exist.
    */
   @Test
   void NoGradeAvailableException() {
-    assertThrows(NoGradeAvailableException.class, () -> { // Test 22
+    assertThrows(NoGradeAvailableException.class, () -> { // Test 25.
       student.computeAverage();
     });
-    assertThrows(NoGradeAvailableException.class, () -> { // Test 23
+    assertThrows(NoGradeAvailableException.class, () -> { // Test 26.
       Module module = new Module(null, null, false, null);
       student.registerModule(module);
       student.getGrade(module);
@@ -39,15 +35,14 @@ public class ExceptionTest {
   }
 
   /**
-   * Check if the exception is working as intended. Relates to: If a user try to access grades for
-   * unregistered modules.
+   * Check if the exception works. Related: If a user try to access grades for unregistered modules.
    */
   @Test
   void NoRegistrationException() {
-    assertThrows(NoRegistrationException.class, () -> { // Test 24
+    assertThrows(NoRegistrationException.class, () -> { // Test 27.
       student.getGrade(module);
     });
-    assertThrows(NoRegistrationException.class, () -> { // Test 25
+    assertThrows(NoRegistrationException.class, () -> { // Test 28.
       Module module1 = new Module(null, "module1", false, null);
       Module module2 = new Module(null, "module2", false, null);
       student.registerModule(module1);
