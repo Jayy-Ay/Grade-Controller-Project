@@ -7,16 +7,18 @@ import jakarta.persistence.OneToOne;
 // This is a module that would contain the grade of the student.
 @Entity
 public class Module {
-
   @Id
   String code;
 
-  String name;
+  private String name;
 
-  boolean mnc; // ie. mandatory non codonable.
+  private boolean mnc; // ie. mandatory non codonable.
 
   @OneToOne
   Grade grade;
+
+  @OneToOne
+  Registration registration;
 
   /**
    * Constructors.
@@ -46,11 +48,34 @@ public class Module {
   }
 
   /**
+   * Get the code of the student in this particular module.
+   *
+   * @return this code.
+   */
+  public String getCode() {
+    return this.code;
+  }
+
+  /**
    * Get the student's name for this particular module.
    *
-   * @return the name as a string
+   * @return the name as a string.
    */
   public String getName() {
     return this.name;
+  }
+
+  /**
+   * @return mnc as a boolean.
+   */
+  public boolean isMnc() {
+    return mnc;
+  }
+
+  /**
+   * @param mnc that will be set.
+   */
+  public void setMnc(boolean mnc) {
+    this.mnc = mnc;
   }
 }

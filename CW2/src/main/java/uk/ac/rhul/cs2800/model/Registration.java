@@ -10,7 +10,6 @@ import jakarta.persistence.OneToOne;
 // This is for the student to register.
 @Entity
 public class Registration {
-
   @Id
   @GeneratedValue
   Long id;

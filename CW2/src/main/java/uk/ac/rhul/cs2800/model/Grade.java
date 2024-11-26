@@ -14,6 +14,8 @@ public class Grade {
   @GeneratedValue
   Long id;
 
+  Integer score; // 'int' not used because 'Integer' allows null value.
+
   @ManyToOne
   @JoinColumn(name = "student_id")
   Student student;
@@ -21,8 +23,6 @@ public class Grade {
   @OneToOne
   @JoinColumn(name = "module_code")
   Module module;
-
-  Integer score; // 'int' not used because 'Integer' allows null value.
 
   /**
    * Constructors.
@@ -61,6 +61,15 @@ public class Grade {
    */
   public void setModule(Module module) {
     this.module = module;
+  }
+
+  /**
+   * Get the module for this grade.
+   *
+   * @param module relating to the grade to set.
+   */
+  public Module getModule() {
+    return this.module;
   }
 
   /**

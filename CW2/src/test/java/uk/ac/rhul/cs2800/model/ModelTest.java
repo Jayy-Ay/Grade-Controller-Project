@@ -7,11 +7,7 @@ import org.junit.jupiter.api.Test;
 import uk.ac.rhul.cs2800.exception.NoGradeAvailableException;
 import uk.ac.rhul.cs2800.exception.NoRegistrationException;
 
-<<<<<<< HEAD
 // Unit tests. Testing methods and exceptions.
-=======
-/** Unit tests. Testing methods and exceptions. */
->>>>>>> 04f662e6cb672b356e326289eec04f43bc0ca7d7
 public class ModelTest {
   Student student;
   Module module;
@@ -34,15 +30,15 @@ public class ModelTest {
     for (int i = 0; i < 3; i++) {
       student.addGrade(new Grade(i + 1));
     }
-    assertNotNull(student.grades.get(0).getScore()); // Test 1
-    assertNotNull(student.grades.get(1).getScore()); // Test 2
-    assertNotNull(student.grades.get(2).getScore()); // Test 3
-    assertNotNull(student.grades.size()); // Test 4
-    assertEquals(1, student.grades.get(0).getScore()); // Test 5
-    assertEquals(2, student.grades.get(1).getScore()); // Test 6
-    assertEquals(3, student.grades.get(2).getScore()); // Test 7
-    assertEquals(3, student.grades.size()); // Test 8
-    assertEquals(2, student.computeAverage()); // Test 9
+    assertNotNull(student.grades.get(0).getScore()); // Test 1.
+    assertNotNull(student.grades.get(1).getScore()); // Test 2.
+    assertNotNull(student.grades.get(2).getScore()); // Test 3.
+    assertNotNull(student.grades.size()); // Test 4.
+    assertEquals(1, student.grades.get(0).getScore()); // Test 5.
+    assertEquals(2, student.grades.get(1).getScore()); // Test 6.
+    assertEquals(3, student.grades.get(2).getScore()); // Test 7.
+    assertEquals(3, student.grades.size()); // Test 8.
+    assertEquals(2, student.computeAverage()); // Test 9.
   }
 
   /**
@@ -54,10 +50,10 @@ public class ModelTest {
   void addGradeTest() throws NoGradeAvailableException {
     student.addGrade(new Grade(10));
     student.addGrade(new Grade(99));
-    assertNotNull(student.grades.get(0).getScore()); // Test 10
-    assertNotNull(student.grades.get(1).getScore()); // Test 11
-    assertEquals(10, student.grades.get(0).getScore()); // Test 12
-    assertEquals(99, student.grades.get(1).getScore()); // Test 13
+    assertNotNull(student.grades.get(0).getScore()); // Test 10.
+    assertNotNull(student.grades.get(1).getScore()); // Test 11.
+    assertEquals(10, student.grades.get(0).getScore()); // Test 12.
+    assertEquals(99, student.grades.get(1).getScore()); // Test 13.
   }
 
   /**
@@ -72,12 +68,12 @@ public class ModelTest {
     Module module2 = new Module(null, "module2", false, new Grade(5));
     student.registerModule(module1);
     student.registerModule(module2);
-    assertNotNull(student.registrations); // Test 14
-    assertNotNull(student.registrations.get(0).getModule()); // Test 15
-    assertEquals("module1", student.registrations.get(0).getModule().getName()); // Test 16
-    assertEquals("module2", student.registrations.get(1).getModule().getName()); // Test 17
-    assertEquals(10, student.getGrade(module1).getScore()); // Test 18
-    assertEquals(5, student.getGrade(module2).getScore()); // Test 19
+    assertNotNull(student.registrations); // Test 14.
+    assertNotNull(student.registrations.get(0).getModule()); // Test 15.
+    assertEquals("module1", student.registrations.get(0).getModule().getName()); // Test 16.
+    assertEquals("module2", student.registrations.get(1).getModule().getName()); // Test 17.
+    assertEquals(10, student.getGrade(module1).getScore()); // Test 18.
+    assertEquals(5, student.getGrade(module2).getScore()); // Test 19.
   }
 
   /**
@@ -89,11 +85,11 @@ public class ModelTest {
   void getRegistrationTest() throws NoRegistrationException {
     student.registerModule(module);
     assertEquals("Math", module.getName()); // Test 20
-    assertEquals(student.registrations.get(0).getModule().getName(), module.getName()); // Test 21
+    assertEquals(student.registrations.get(0).getModule().getName(), module.getName()); // Test 21.
   }
 
   /**
-   * Check if you can set and get a score for the grade
+   * Check if you can set and get a score for the grade.
    */
   @Test
   void gradeScoreTest() {
@@ -102,13 +98,13 @@ public class ModelTest {
   }
 
   /**
-   * Check if you can set and get a module for a registration
+   * Check if you can set and get a module for a registration.
    */
   @Test
   void registrationModuleTest() {
     Registration registration = new Registration(null);
     registration.setModule(module);
-    assertEquals("Math", registration.getModule().getName()); // Test 23
-    assertEquals(module.getName(), registration.getModule().getName()); // Test 24
+    assertEquals("Math", registration.getModule().getName()); // Test 23.
+    assertEquals(module.getName(), registration.getModule().getName()); // Test 24.
   }
 }

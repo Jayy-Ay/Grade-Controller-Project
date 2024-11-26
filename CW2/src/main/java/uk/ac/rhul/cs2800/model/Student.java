@@ -11,9 +11,8 @@ import uk.ac.rhul.cs2800.exception.NoRegistrationException;
 // This contains all the important information of the student.
 @Entity
 public class Student {
-
   @Id
-  Long id;
+  Integer id;
 
   private String firstName;
   private String lastName;
@@ -35,7 +34,7 @@ public class Student {
    * @param userName identifying username.
    * @param email the student's email.
    */
-  public Student(long id, String firstName, String lastName, String userName, String email) {
+  public Student(Integer id, String firstName, String lastName, String userName, String email) {
     this.id = id;
     this.setFirstName(firstName);
     this.setLastName(lastName);
@@ -106,56 +105,56 @@ public class Student {
   }
 
   /**
-   * @return the firstName
+   * @return the firstName.
    */
   public String getFirstName() {
     return firstName;
   }
 
   /**
-   * @param firstName the firstName to set
+   * @param firstName the firstName to set.
    */
   public void setFirstName(String firstName) {
     this.firstName = firstName;
   }
 
   /**
-   * @return the lastName
+   * @return the lastName.
    */
   public String getLastName() {
     return lastName;
   }
 
   /**
-   * @param lastName the lastName to set
+   * @param lastName the lastName to set.
    */
   public void setLastName(String lastName) {
     this.lastName = lastName;
   }
 
   /**
-   * @return the userName
+   * @return the userName.
    */
   public String getUserName() {
     return userName;
   }
 
   /**
-   * @param userName the userName to set
+   * @param userName the userName to set.
    */
   public void setUserName(String userName) {
     this.userName = userName;
   }
 
   /**
-   * @return the email
+   * @return the email.
    */
   public String getEmail() {
     return email;
   }
 
   /**
-   * @param email the email to set
+   * @param email the email to set.
    */
   public void setEmail(String email) {
     this.email = email;
