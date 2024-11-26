@@ -7,7 +7,11 @@ import org.junit.jupiter.api.Test;
 import uk.ac.rhul.cs2800.exception.NoGradeAvailableException;
 import uk.ac.rhul.cs2800.exception.NoRegistrationException;
 
+<<<<<<< HEAD
+// Unit tests. Testing methods and exceptions.
+=======
 /** Unit tests. Testing methods and exceptions. */
+>>>>>>> 04f662e6cb672b356e326289eec04f43bc0ca7d7
 public class ModelTest {
   Student student;
   Module module;

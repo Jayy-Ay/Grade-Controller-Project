@@ -37,10 +37,10 @@ public class Student {
    */
   public Student(long id, String firstName, String lastName, String userName, String email) {
     this.id = id;
-    this.firstName = firstName;
-    this.lastName = lastName;
-    this.userName = userName;
-    this.email = email;
+    this.setFirstName(firstName);
+    this.setLastName(lastName);
+    this.setUserName(userName);
+    this.setEmail(email);
     this.grades = new ArrayList<Grade>();
     this.registrations = new ArrayList<Registration>();
   }
@@ -103,5 +103,61 @@ public class Student {
   public void registerModule(Module module) throws NoRegistrationException {
     Registration registation = new Registration(module);
     registrations.add(registation);
+  }
+
+  /**
+   * @return the firstName
+   */
+  public String getFirstName() {
+    return firstName;
+  }
+
+  /**
+   * @param firstName the firstName to set
+   */
+  public void setFirstName(String firstName) {
+    this.firstName = firstName;
+  }
+
+  /**
+   * @return the lastName
+   */
+  public String getLastName() {
+    return lastName;
+  }
+
+  /**
+   * @param lastName the lastName to set
+   */
+  public void setLastName(String lastName) {
+    this.lastName = lastName;
+  }
+
+  /**
+   * @return the userName
+   */
+  public String getUserName() {
+    return userName;
+  }
+
+  /**
+   * @param userName the userName to set
+   */
+  public void setUserName(String userName) {
+    this.userName = userName;
+  }
+
+  /**
+   * @return the email
+   */
+  public String getEmail() {
+    return email;
+  }
+
+  /**
+   * @param email the email to set
+   */
+  public void setEmail(String email) {
+    this.email = email;
   }
 }
