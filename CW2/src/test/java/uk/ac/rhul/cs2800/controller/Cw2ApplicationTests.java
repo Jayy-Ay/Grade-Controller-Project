@@ -1,4 +1,4 @@
-package uk.ac.rhul.cs2800;
+package uk.ac.rhul.cs2800.controller;
 
 // import org.junit.jupiter.api.Test;
 // import org.springframework.boot.test.context.SpringBootTest;

@@ -1,6 +1,8 @@
 package uk.ac.rhul.cs2800.exception;
 
-// If there is no grade available, thow is exception.
+/**
+ * If there is no grade available, thow is exception.
+ */
 public class NoGradeAvailableException extends Exception {
 
   /** Generated serial version UID. */

@@ -12,7 +12,9 @@ import uk.ac.rhul.cs2800.repository.GradeRepository;
 import uk.ac.rhul.cs2800.repository.ModuleRepository;
 import uk.ac.rhul.cs2800.repository.StudentRepository;
 
-// Grade controller manages grade instances.
+/**
+ * Grade controller manages grade instances.
+ */
 @RestController
 public class GradeController {
   private final GradeRepository gradeRepository;
