@@ -41,7 +41,7 @@ public class GradeControllerTest {
 
   @BeforeEach
   void beforeEach() {
-    module = new Module(null, "Science", false, null);
+    module = new Module("CS2800", "Hardware_Engineering", false, null);
     module = moduleRepository.save(module);
   }
 
@@ -69,14 +69,14 @@ public class GradeControllerTest {
             .contentType(MediaType.APPLICATION_JSON)
             .content(objectMapper.writeValueAsString(params)).accept(MediaType.APPLICATION_JSON))
         .andReturn();
-    assertEquals(HttpStatus.OK.value(), action.getResponse().getStatus());
+    assertEquals(HttpStatus.OK.value(), action.getResponse().getStatus()); // Test 35.
 
-    // Take action's response as a JSON string, then into Grade object.
+    // Take action's response as a JSON string, then into Grade object
     Grade grade = objectMapper.readValue(action.getResponse().getContentAsString(), Grade.class);
-    assertEquals(module.getCode(), grade.getModule().getCode());
-    assertEquals(module.getName(), grade.getModule().getCode());
-    assertEquals(5, grade.getScore());
-    assertNotNull(grade.getScore());
+    assertEquals(module.getCode(), grade.getModule().getCode()); // Test 36.
+    assertEquals(module.getName(), grade.getModule().getCode()); // Test 37.
+    assertEquals(5, grade.getScore()); // Test 38.
+    assertNotNull(grade.getScore()); // Test 39.
 
     gradeRepository.deleteAll();
   }

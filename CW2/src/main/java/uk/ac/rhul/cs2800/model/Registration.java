@@ -7,7 +7,9 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 
-// This is for the student to register.
+/**
+ * This is for the student to register.
+ */
 @Entity
 public class Registration {
   @Id
@@ -31,16 +33,36 @@ public class Registration {
     this.module = module;
   }
 
-  // Empty Method for GradeCrontroller.
+  /**
+   * Empty Method for GradeCrontroller.
+   */
   public Registration() {}
 
   /**
-   * Get the module and retunr the module.
+   * Get id for registration.
    *
-   * @return the module.
+   * @return The id for registration.
    */
-  public Module getModule() {
-    return module;
+  public Long getId() {
+    return id;
+  }
+
+  /**
+   * Set student for registration.
+   *
+   * @param student The student for registration.
+   */
+  public void setStudent(Student student) {
+    this.student = student;
+  }
+
+  /**
+   * Get student for registration.
+   *
+   * @param The student for registration.
+   */
+  public Student getStudent() {
+    return student;
   }
 
   /**
@@ -50,5 +72,14 @@ public class Registration {
    */
   public void setModule(Module module) {
     this.module = module;
+  }
+
+  /**
+   * Get the module and retunr the module.
+   *
+   * @return the module.
+   */
+  public Module getModule() {
+    return module;
   }
 }

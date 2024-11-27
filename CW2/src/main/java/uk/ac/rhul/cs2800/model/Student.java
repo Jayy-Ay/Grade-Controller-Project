@@ -8,7 +8,9 @@ import jakarta.persistence.OneToMany;
 import uk.ac.rhul.cs2800.exception.NoGradeAvailableException;
 import uk.ac.rhul.cs2800.exception.NoRegistrationException;
 
-// This contains all the important information of the student.
+/**
+ * This contains all the important information of the student.
+ */
 @Entity
 public class Student {
   @Id
@@ -36,10 +38,10 @@ public class Student {
    */
   public Student(Integer id, String firstName, String lastName, String userName, String email) {
     this.id = id;
-    this.setFirstName(firstName);
-    this.setLastName(lastName);
-    this.setUserName(userName);
-    this.setEmail(email);
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.userName = userName;
+    this.email = email;
     this.grades = new ArrayList<Grade>();
     this.registrations = new ArrayList<Registration>();
   }
@@ -64,7 +66,7 @@ public class Student {
   /**
    * Add and save the student's grade into a list of grades.
    *
-   * @param grade the student's grade that they got.
+   * @param grade The student's grade that they got.
    */
   public void addGrade(Grade grade) {
     grades.add(grade);
@@ -73,7 +75,7 @@ public class Student {
   /**
    * Get the grade of the student via. the module.
    *
-   * @param module the module that the student took.
+   * @param module The module that the student took.
    * @return the grade for the student.
    * @throws NoGradeAvailableException If no grade is available/grade doesn't exist.
    * @throws NoRegistrationException If a user try to access grades for unregistered modules.
@@ -96,7 +98,7 @@ public class Student {
   /**
    * Register the student with the module.
    *
-   * @param module the module that the student is taking.
+   * @param module The module that the student is taking.
    * @throws NoRegistrationException If a user try to access grades for unregistered modules.
    */
   public void registerModule(Module module) throws NoRegistrationException {
@@ -105,58 +107,93 @@ public class Student {
   }
 
   /**
-   * @return the firstName.
+   * Set the studendt's id.
+   *
+   * @param id The student's id.
+   */
+  public void setId(Integer id) {
+    this.id = id;
+  }
+
+  /**
+   * Get the studendt's id.
+   *
+   * @return the student's id.
+   */
+  public Integer getId() {
+    return this.id;
+  }
+
+  /**
+   * Set the student's first name.
+   *
+   * @param firstName the student's firstName.
+   */
+  public void setFirstName(String firstName) {
+    this.firstName = firstName;
+  }
+
+
+  /**
+   * Get the studendt's first name.
+   *
+   * @return the student's firstName.
    */
   public String getFirstName() {
     return firstName;
   }
 
   /**
-   * @param firstName the firstName to set.
-   */
-  public void setFirstName(String firstName) {
-    this.firstName = firstName;
-  }
-
-  /**
-   * @return the lastName.
-   */
-  public String getLastName() {
-    return lastName;
-  }
-
-  /**
-   * @param lastName the lastName to set.
+   * Set the last name of the student.
+   *
+   * @param lastName The student's last name.
    */
   public void setLastName(String lastName) {
     this.lastName = lastName;
   }
 
   /**
-   * @return the userName.
+   * Return the last name of the student.
+   *
+   * @return the student's last name.
    */
-  public String getUserName() {
-    return userName;
+  public String getLastName() {
+    return lastName;
   }
 
   /**
-   * @param userName the userName to set.
+   * Set the user name of the student.
+   *
+   * @param userName The student's user name.
    */
   public void setUserName(String userName) {
     this.userName = userName;
   }
 
   /**
-   * @return the email.
+   * Return the user name of the student.
+   *
+   * @return the student's user name.
    */
-  public String getEmail() {
-    return email;
+  public String getUserName() {
+    return userName;
   }
 
   /**
-   * @param email the email to set.
+   * Set the email of the student.
+   *
+   * @param email The student's email.
    */
   public void setEmail(String email) {
     this.email = email;
+  }
+
+  /**
+   * Return the email of the student.
+   *
+   * @return the student's email.
+   */
+  public String getEmail() {
+    return email;
   }
 }

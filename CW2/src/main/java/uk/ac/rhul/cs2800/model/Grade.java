@@ -7,7 +7,9 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 
-// This is where the grade of a student in a module is stored alongsided their scores.
+/**
+ * This is where the grade of a student in a module is stored alongsided their scores.
+ */
 @Entity
 public class Grade {
   @Id
@@ -33,17 +35,10 @@ public class Grade {
     this.score = score;
   }
 
-  // Empty Method for GradeCrontroller.
-  public Grade() {}
-
   /**
-   * Get the score of this grade.
-   *
-   * @return the score as in integer.
+   * Empty Method for GradeCrontroller.
    */
-  public Integer getScore() {
-    return score;
-  }
+  public Grade() {}
 
   /**
    * Set the score for this grade.
@@ -52,6 +47,15 @@ public class Grade {
    */
   public void setScore(Integer score) {
     this.score = score;
+  }
+
+  /**
+   * Get the score of this grade.
+   *
+   * @return the score as in integer.
+   */
+  public Integer getScore() {
+    return score;
   }
 
   /**
@@ -66,18 +70,27 @@ public class Grade {
   /**
    * Get the module for this grade.
    *
-   * @param module relating to the grade to set.
+   * @return module relating to the grade to set.
    */
   public Module getModule() {
     return this.module;
   }
 
   /**
-   * Set the module for this grade.
+   * Set the student for this grade.
    *
-   * @param module relating to the grade to set.
+   * @param student relating to the student to set.
    */
   public void setStudent(Student student) {
     this.student = student;
+  }
+
+  /**
+   * Get the student for this grade.
+   *
+   * @return the student's grade.
+   */
+  public Student getStudent() {
+    return this.student;
   }
 }
