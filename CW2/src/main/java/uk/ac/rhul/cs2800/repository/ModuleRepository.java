@@ -6,5 +6,5 @@ import uk.ac.rhul.cs2800.model.Module;
 /**
  * The repository storing all the module instances.
  */
-public interface ModuleRepository extends CrudRepository<Module, Long> {
+public interface ModuleRepository extends CrudRepository<Module, String> {
 }

@@ -19,8 +19,10 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import uk.ac.rhul.cs2800.model.Grade;
 import uk.ac.rhul.cs2800.model.Module;
+import uk.ac.rhul.cs2800.model.Student;
 import uk.ac.rhul.cs2800.repository.GradeRepository;
 import uk.ac.rhul.cs2800.repository.ModuleRepository;
+import uk.ac.rhul.cs2800.repository.StudentRepository;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.MOCK)
 @AutoConfigureMockMvc
@@ -37,10 +39,16 @@ public class GradeControllerTest {
   @Autowired
   private GradeRepository gradeRepository;
 
+  @Autowired
+  private StudentRepository studentRepository;
+
+  Student student;
   Module module;
 
   @BeforeEach
   void beforeEach() {
+    student = new Student(1, "Bob", "Bobby", "xBobx", "bob@gmail.com");
+    student = studentRepository.save(student);
     module = new Module("CS2800", "Hardware_Engineering", false, null);
     module = moduleRepository.save(module);
   }
@@ -60,9 +68,10 @@ public class GradeControllerTest {
    */
   @Test
   void addGradeTest() throws JsonProcessingException, Exception {
-    Map<String, Integer> params = new HashMap<String, Integer>();
-    params.put("module_code", 1);
-    params.put("score", 5);
+    Map<String, String> params = new HashMap<String, String>();
+    params.put("student_id", String.valueOf(student.getId()));
+    params.put("module_code", String.valueOf(module.getCode()));
+    params.put("score", "5");
 
     MvcResult action = mockMvc
         .perform(MockMvcRequestBuilders.post("/grades/addGrade")
