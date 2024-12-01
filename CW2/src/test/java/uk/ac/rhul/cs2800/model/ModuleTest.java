@@ -24,6 +24,7 @@ public class ModuleTest {
    */
   @Test
   void getCodeTest() {
+    // Test 13.
     module.setCode("CS2500");
     assertNotNull(module.getCode());
     assertEquals("CS2500", module.getCode());
@@ -34,6 +35,7 @@ public class ModuleTest {
    */
   @Test
   void getNameTest() {
+    // Test 14.
     module.setName("Math");
     assertNotNull(module.getName());
     assertEquals("Math", module.getName());
@@ -44,6 +46,7 @@ public class ModuleTest {
    */
   @Test
   void getMncTest() {
+    // Test 14.
     module.setMnc(true);
     assertNotNull(module.getMnc());
     assertEquals(true, module.getMnc());
@@ -56,6 +59,7 @@ public class ModuleTest {
    */
   @Test
   void getGradeTest() throws NoGradeAvailableException {
+    // Test 16.
     module.setGrade(grade);
     assertNotNull(module.getGrade());
     assertEquals(100, module.getGrade().getScore());

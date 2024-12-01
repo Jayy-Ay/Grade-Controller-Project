@@ -25,6 +25,7 @@ public class GradeTest {
    */
   @Test
   void getScoreTest() {
+    // Test 10.
     grade.setScore(5);
     assertNotNull(grade.getScore());
     assertEquals(5, grade.getScore());
@@ -35,6 +36,7 @@ public class GradeTest {
    */
   @Test
   void getModuleTest() {
+    // Test 11.
     grade.setModule(module);
     grade.getModule();
     assertNotNull(grade.getModule());
@@ -46,6 +48,7 @@ public class GradeTest {
    */
   @Test
   void getStudentTest() {
+    // Test 12.
     grade.setStudent(student);
     assertNotNull(grade.getStudent());
     assertEquals(0, grade.getStudent().getId());

@@ -83,7 +83,7 @@ public class GradeControllerTest {
     // Take action's response as a JSON string, then into Grade object
     Grade grade = objectMapper.readValue(action.getResponse().getContentAsString(), Grade.class);
     assertEquals(module.getCode(), grade.getModule().getCode()); // Test 36.
-    assertEquals(module.getName(), grade.getModule().getCode()); // Test 37.
+    assertEquals(module.getName(), grade.getModule().getName()); // Test 37.
     assertEquals(5, grade.getScore()); // Test 38.
     assertNotNull(grade.getScore()); // Test 39.
 
