@@ -15,7 +15,7 @@ public class ModuleTest {
 
   @BeforeEach
   void beforeEach() {
-    module = new Module();
+    module = new Module(null, null, false);
     grade = new Grade(100);
   }
 
@@ -23,7 +23,8 @@ public class ModuleTest {
    * Check if can set and get a module's code.
    */
   @Test
-  void getCode() {
+  void getCodeTest() {
+    // Test 1.
     module.setCode("CS2500");
     assertNotNull(module.getCode());
     assertEquals("CS2500", module.getCode());
@@ -33,7 +34,8 @@ public class ModuleTest {
    * Check if can set and get a module's name.
    */
   @Test
-  void getName() {
+  void getNameTest() {
+    // Test 2.
     module.setName("Math");
     assertNotNull(module.getName());
     assertEquals("Math", module.getName());
@@ -43,7 +45,8 @@ public class ModuleTest {
    * Check if can set and get a module's mnc.
    */
   @Test
-  void getMnc() {
+  void getMncTest() {
+    // Test 3.
     module.setMnc(true);
     assertNotNull(module.getMnc());
     assertEquals(true, module.getMnc());
@@ -55,7 +58,8 @@ public class ModuleTest {
    * @throws NoGradeAvailableException If no grade is available/grade don't exist.
    */
   @Test
-  void getGrade() throws NoGradeAvailableException {
+  void getGradeTest() throws NoGradeAvailableException {
+    // Test 4.
     module.setGrade(grade);
     assertNotNull(module.getGrade());
     assertEquals(100, module.getGrade().getScore());
