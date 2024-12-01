@@ -21,6 +21,17 @@ public class RegistrationTest {
   }
 
   /**
+   * Check if can set and get a registration's Id.
+   */
+  @Test
+  void getId() {
+    // Test 22.
+    registration.setId(Long.valueOf(1));
+    assertNotNull(registration.getId());
+    assertEquals(1, registration.getId());
+  }
+
+  /**
    * Check if can set and get a registration's module.
    */
   @Test
