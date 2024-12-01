@@ -45,7 +45,7 @@ public class GradeTest {
    * Check if can set and get a student using grade.
    */
   @Test
-  void getStudent() {
+  void getStudentTest() {
     grade.setStudent(student);
     assertNotNull(grade.getStudent());
     assertEquals(0, grade.getStudent().getId());

@@ -24,7 +24,7 @@ public class RegistrationTest {
    * Check if can set and get a registration's module.
    */
   @Test
-  void getModule() {
+  void getModuleTest() {
     registration.setModule(module);
     assertNotNull(registration.getModule());
     assertEquals("CS2500", registration.getModule().getCode());
@@ -34,7 +34,7 @@ public class RegistrationTest {
    * Check if can set and get a registration's student.
    */
   @Test
-  void getStudent() {
+  void getStudentTest() {
     registration.setStudent(student);
     assertNotNull(registration.getStudent());
     assertEquals(0, registration.getStudent().getId());

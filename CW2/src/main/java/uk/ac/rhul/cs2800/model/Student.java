@@ -47,6 +47,11 @@ public class Student {
   }
 
   /**
+   * Empty Method for GradeCrontroller.
+   */
+  public Student() {}
+
+  /**
    * Take all grade scores of the student and calculate the average.
    *
    * @return the average score of the student as a float.

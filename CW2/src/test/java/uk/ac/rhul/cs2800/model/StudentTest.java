@@ -54,7 +54,7 @@ public class StudentTest {
    * Check if can set and get a student's id.
    */
   @Test
-  void getId() {
+  void getIdTest() {
     student.setId(0);
     assertNotNull(student.getId());
     assertEquals(0, student.getId());
@@ -64,7 +64,7 @@ public class StudentTest {
    * Check if can set and get a student's first name.
    */
   @Test
-  void getFirstName() {
+  void getFirstNameTest() {
     student.setFirstName("Bob");
     assertNotNull(student.getFirstName());
     assertEquals("Bob", student.getFirstName());
@@ -74,7 +74,7 @@ public class StudentTest {
    * Check if can set and get a student's last name.
    */
   @Test
-  void getLasttName() {
+  void getLastNameTest() {
     student.setLastName("Bob");
     assertNotNull(student.getLastName());
     assertEquals("Bob", student.getLastName());
@@ -84,7 +84,7 @@ public class StudentTest {
    * Check if can set and get a student's user name.
    */
   @Test
-  void getUserName() {
+  void getUserNameTest() {
     student.setUserName("Bob");
     assertNotNull(student.getUserName());
     assertEquals("Bob", student.getUserName());
@@ -94,7 +94,7 @@ public class StudentTest {
    * Check if can set and get a student's email.
    */
   @Test
-  void getEmail() {
+  void getEmailTest() {
     student.setEmail("Bob@gmail.com");
     assertNotNull(student.getEmail());
     assertEquals("Bob@gmail.com", student.getEmail());
