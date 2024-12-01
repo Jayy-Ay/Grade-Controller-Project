@@ -16,7 +16,7 @@ public class GradeTest {
   @BeforeEach
   void beforeEach() {
     student = new Student(0, null, null, null, null);
-    module = new Module("CS2500", "Hardware_Engineering", false, null);
+    module = new Module("CS2500", "Hardware_Engineering", false);
     grade = new Grade(100);
   }
 

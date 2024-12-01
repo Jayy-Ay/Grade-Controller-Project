@@ -16,7 +16,7 @@ public class RegistrationTest {
   @BeforeEach
   void beforeEach() {
     student = new Student(0, null, null, null, null);
-    module = new Module("CS2500", null, false, null);
+    module = new Module("CS2500", null, false);
     registration = new Registration();
   }
 

@@ -18,7 +18,7 @@ public class StudentTest {
   @BeforeEach
   void beforeEach() {
     student = new Student(0, null, null, null, null);
-    module1 = new Module(null, "Math", false, null);
+    module1 = new Module(null, "Math", false);
   }
 
   /**
