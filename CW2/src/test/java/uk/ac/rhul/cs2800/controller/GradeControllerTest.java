@@ -49,7 +49,7 @@ public class GradeControllerTest {
   void beforeEach() {
     student = new Student(1, "Bob", "Bobby", "xBobx", "bob@gmail.com");
     student = studentRepository.save(student);
-    module = new Module("CS2800", "Hardware_Engineering", false, null);
+    module = new Module("CS2800", "Hardware_Engineering", false);
     module = moduleRepository.save(module);
   }
 
@@ -79,14 +79,14 @@ public class GradeControllerTest {
             .contentType(MediaType.APPLICATION_JSON)
             .content(objectMapper.writeValueAsString(params)).accept(MediaType.APPLICATION_JSON))
         .andReturn();
-    assertEquals(HttpStatus.OK.value(), action.getResponse().getStatus()); // Test 35.
+    assertEquals(HttpStatus.OK.value(), action.getResponse().getStatus());
 
     // Take action's response as a JSON string, then into Grade object
     Grade grade = objectMapper.readValue(action.getResponse().getContentAsString(), Grade.class);
-    assertEquals(module.getCode(), grade.getModule().getCode()); // Test 36.
-    assertEquals(module.getName(), grade.getModule().getName()); // Test 37.
-    assertEquals(5, grade.getScore()); // Test 38.
-    assertNotNull(grade.getScore()); // Test 39.
+    assertEquals(module.getCode(), grade.getModule().getCode());
+    assertEquals(module.getName(), grade.getModule().getName());
+    assertEquals(5, grade.getScore());
+    assertNotNull(grade.getScore());
 
     gradeRepository.deleteAll();
   }
