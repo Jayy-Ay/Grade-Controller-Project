@@ -132,7 +132,7 @@ public class StudentTest {
   @Test
   void getGradeTest() throws NoGradeAvailableException, NoRegistrationException {
     // Test 9.
-    Module module2 = new Module(null, "module2", false, null);
+    Module module2 = new Module(null, "module2", false);
     student.registerModule(module1);
     student.registerModule(module2);
     assertNotNull(student.registrations);
