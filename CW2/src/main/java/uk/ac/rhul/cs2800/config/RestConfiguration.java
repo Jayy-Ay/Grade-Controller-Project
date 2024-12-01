@@ -9,9 +9,18 @@ import uk.ac.rhul.cs2800.model.Grade;
 import uk.ac.rhul.cs2800.model.Module;
 import uk.ac.rhul.cs2800.model.Student;
 
+/**
+ * Configuration specifics for the rest controller.
+ */
 @Configuration
 public class RestConfiguration implements RepositoryRestConfigurer {
 
+  /**
+   * Exposes the IDs for the specified entities in the response.
+   *
+   * @param config The Repository REST configuration.
+   * @param cors The CORS.
+   */
   @Override
   public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config,
       CorsRegistry cors) {
