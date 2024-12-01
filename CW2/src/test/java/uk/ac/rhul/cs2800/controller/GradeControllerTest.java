@@ -49,7 +49,7 @@ public class GradeControllerTest {
   void beforeEach() {
     student = new Student(1, "Bob", "Bobby", "xBobx", "bob@gmail.com");
     student = studentRepository.save(student);
-    module = new Module("CS2800", "Hardware_Engineering", false);
+    module = new Module("CS2800", "Hardware_Engineering", false, null);
     module = moduleRepository.save(module);
   }
 
@@ -68,7 +68,6 @@ public class GradeControllerTest {
    */
   @Test
   void addGradeTest() throws JsonProcessingException, Exception {
-    // Test 1.
     Map<String, String> params = new HashMap<String, String>();
     params.put("student_id", String.valueOf(student.getId()));
     params.put("module_code", String.valueOf(module.getCode()));
@@ -84,7 +83,7 @@ public class GradeControllerTest {
     // Take action's response as a JSON string, then into Grade object
     Grade grade = objectMapper.readValue(action.getResponse().getContentAsString(), Grade.class);
     assertEquals(module.getCode(), grade.getModule().getCode()); // Test 36.
-    assertEquals(module.getCode(), grade.getModule().getCode()); // Test 37.
+    assertEquals(module.getName(), grade.getModule().getCode()); // Test 37.
     assertEquals(5, grade.getScore()); // Test 38.
     assertNotNull(grade.getScore()); // Test 39.
 

@@ -15,7 +15,7 @@ public class ExceptionTest {
   @BeforeEach
   void beforeEach() {
     student = new Student(0, null, null, null, null);
-    module = new Module(null, "Math", false);
+    module = new Module(null, "Math", false, null);
     grade = new Grade(100);
   }
 
@@ -24,12 +24,11 @@ public class ExceptionTest {
    */
   @Test
   void NoGradeAvailableException() {
-    // Test 1.
-    assertThrows(NoGradeAvailableException.class, () -> {
+    assertThrows(NoGradeAvailableException.class, () -> { // Test 25.
       student.computeAverage();
     });
-    assertThrows(NoGradeAvailableException.class, () -> {
-      Module module = new Module(null, null, false);
+    assertThrows(NoGradeAvailableException.class, () -> { // Test 26.
+      Module module = new Module(null, null, false, null);
       student.registerModule(module);
       student.getGrade(module);
     });
@@ -40,13 +39,12 @@ public class ExceptionTest {
    */
   @Test
   void NoRegistrationException() {
-    // Test 2.
-    assertThrows(NoRegistrationException.class, () -> {
+    assertThrows(NoRegistrationException.class, () -> { // Test 27.
       student.getGrade(module);
     });
-    assertThrows(NoRegistrationException.class, () -> {
-      Module module1 = new Module(null, "module1", false);
-      Module module2 = new Module(null, "module2", false);
+    assertThrows(NoRegistrationException.class, () -> { // Test 28.
+      Module module1 = new Module(null, "module1", false, null);
+      Module module2 = new Module(null, "module2", false, null);
       student.registerModule(module1);
       student.getGrade(module2);
     });
