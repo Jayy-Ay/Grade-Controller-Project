@@ -1,6 +1,8 @@
 package uk.ac.rhul.cs2800.exception;
 
-/** If there is no registration available, thow is exception. */
+/**
+ * If there is no registration available, thow is exception.
+ */
 public class NoRegistrationException extends Exception {
 
   /** Generated serial version UID. */

@@ -44,6 +44,7 @@ public class GradeController {
    */
   @PostMapping(value = "/grades/addGrade")
   public ResponseEntity<Grade> addGrade(@RequestBody Map<String, String> params) {
+<<<<<<< HEAD
     // Find the student by using student_id.
     Student student =
         studentRepository.findById(Long.valueOf(params.get("student_id")))
@@ -64,6 +65,24 @@ public class GradeController {
     grade = gradeRepository.save(grade);
 
     // Return the saved Grade object.
+=======
+    // Find the student with student_id.
+    Student student =
+        studentRepository.findById(Long.valueOf(params.get("student_id"))).orElseThrow();
+
+    // Find the module with module_code.
+    Module module =
+        moduleRepository.findById(String.valueOf(params.get("module_code"))).orElseThrow();
+
+    // Create a Grade object and set all values.
+    Grade grade = new Grade(0);
+    grade.setStudent(student);
+    grade.setModule(module);
+    grade.setScore(Integer.valueOf(params.get("score")));
+
+    // Save and return the Grade object.
+    grade = gradeRepository.save(grade);
+>>>>>>> 726c14d0061fc3ae2d927d09a1c79ec4700b3dfb
     return ResponseEntity.ok(grade);
   }
 }

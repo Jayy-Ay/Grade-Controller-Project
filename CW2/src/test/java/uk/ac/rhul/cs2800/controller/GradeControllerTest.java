@@ -24,6 +24,7 @@ import uk.ac.rhul.cs2800.repository.GradeRepository;
 import uk.ac.rhul.cs2800.repository.ModuleRepository;
 import uk.ac.rhul.cs2800.repository.StudentRepository;
 
+<<<<<<< HEAD
 /**
  * Testing Springboot.
  */
@@ -31,6 +32,11 @@ import uk.ac.rhul.cs2800.repository.StudentRepository;
 @AutoConfigureMockMvc
 public class GradeControllerTest {
 
+=======
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.MOCK)
+@AutoConfigureMockMvc
+public class GradeControllerTest {
+>>>>>>> 726c14d0061fc3ae2d927d09a1c79ec4700b3dfb
   @Autowired
   private MockMvc mockMvc;
 
@@ -38,24 +44,40 @@ public class GradeControllerTest {
   private ObjectMapper objectMapper;
 
   @Autowired
+<<<<<<< HEAD
   private StudentRepository studentRepository;
   
   @Autowired
+=======
+>>>>>>> 726c14d0061fc3ae2d927d09a1c79ec4700b3dfb
   private ModuleRepository moduleRepository;
 
   @Autowired
   private GradeRepository gradeRepository;
 
+<<<<<<< HEAD
+=======
+  @Autowired
+  private StudentRepository studentRepository;
+
+>>>>>>> 726c14d0061fc3ae2d927d09a1c79ec4700b3dfb
   Student student;
   Module module;
 
   @BeforeEach
   void beforeEach() {
+<<<<<<< HEAD
     module = new Module(null, "Science", false, null);
     module = moduleRepository.save(module);
     
     student = new Student();
     student = studentRepository.save(student);
+=======
+    student = new Student(1, "Bob", "Bobby", "xBobx", "bob@gmail.com");
+    student = studentRepository.save(student);
+    module = new Module("CS2800", "Hardware_Engineering", false, null);
+    module = moduleRepository.save(module);
+>>>>>>> 726c14d0061fc3ae2d927d09a1c79ec4700b3dfb
   }
 
   @AfterEach
@@ -64,7 +86,10 @@ public class GradeControllerTest {
     moduleRepository.deleteAll();
   }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 726c14d0061fc3ae2d927d09a1c79ec4700b3dfb
   /**
    * Test to see if sending a request to add grade instance will work as intended.
    * 
@@ -76,7 +101,11 @@ public class GradeControllerTest {
   void addGradeTest() throws JsonProcessingException, Exception {
     Map<String, String> params = new HashMap<String, String>();
     params.put("student_id", String.valueOf(student.getId()));
+<<<<<<< HEAD
     params.put("module_code", "1");
+=======
+    params.put("module_code", String.valueOf(module.getCode()));
+>>>>>>> 726c14d0061fc3ae2d927d09a1c79ec4700b3dfb
     params.put("score", "5");
 
     MvcResult action = mockMvc
@@ -84,6 +113,7 @@ public class GradeControllerTest {
             .contentType(MediaType.APPLICATION_JSON)
             .content(objectMapper.writeValueAsString(params)).accept(MediaType.APPLICATION_JSON))
         .andReturn();
+<<<<<<< HEAD
 
     assertEquals(HttpStatus.OK.value(), action.getResponse().getStatus());
 
@@ -93,6 +123,16 @@ public class GradeControllerTest {
     // assertEquals(module.getName(), grade.getModule().getcode());.
     assertEquals(5, grade.getScore());
     assertNotNull(grade.getScore());
+=======
+    assertEquals(HttpStatus.OK.value(), action.getResponse().getStatus()); // Test 35.
+
+    // Take action's response as a JSON string, then into Grade object
+    Grade grade = objectMapper.readValue(action.getResponse().getContentAsString(), Grade.class);
+    assertEquals(module.getCode(), grade.getModule().getCode()); // Test 36.
+    assertEquals(module.getName(), grade.getModule().getCode()); // Test 37.
+    assertEquals(5, grade.getScore()); // Test 38.
+    assertNotNull(grade.getScore()); // Test 39.
+>>>>>>> 726c14d0061fc3ae2d927d09a1c79ec4700b3dfb
 
     gradeRepository.deleteAll();
   }
