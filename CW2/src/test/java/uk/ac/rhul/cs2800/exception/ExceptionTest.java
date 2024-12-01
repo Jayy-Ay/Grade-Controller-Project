@@ -24,10 +24,11 @@ public class ExceptionTest {
    */
   @Test
   void NoGradeAvailableException() {
-    assertThrows(NoGradeAvailableException.class, () -> { // Test 25.
+    // Test 19.
+    assertThrows(NoGradeAvailableException.class, () -> {
       student.computeAverage();
     });
-    assertThrows(NoGradeAvailableException.class, () -> { // Test 26.
+    assertThrows(NoGradeAvailableException.class, () -> {
       Module module = new Module(null, null, false, null);
       student.registerModule(module);
       student.getGrade(module);
@@ -39,10 +40,11 @@ public class ExceptionTest {
    */
   @Test
   void NoRegistrationException() {
-    assertThrows(NoRegistrationException.class, () -> { // Test 27.
+    // Test 20.
+    assertThrows(NoRegistrationException.class, () -> {
       student.getGrade(module);
     });
-    assertThrows(NoRegistrationException.class, () -> { // Test 28.
+    assertThrows(NoRegistrationException.class, () -> {
       Module module1 = new Module(null, "module1", false, null);
       Module module2 = new Module(null, "module2", false, null);
       student.registerModule(module1);
