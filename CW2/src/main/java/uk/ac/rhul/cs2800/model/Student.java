@@ -99,9 +99,8 @@ public class Student {
    * Register the student with the module.
    *
    * @param module The module that the student is taking.
-   * @throws NoRegistrationException If a user try to access grades for unregistered modules.
    */
-  public void registerModule(Module module) throws NoRegistrationException {
+  public void registerModule(Module module) {
     Registration registation = new Registration(module);
     registrations.add(registation);
   }

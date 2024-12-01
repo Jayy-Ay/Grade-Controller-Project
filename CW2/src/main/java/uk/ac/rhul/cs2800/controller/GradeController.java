@@ -50,13 +50,13 @@ public class GradeController {
 
     // Find the module with module_code.
     Module module =
-        moduleRepository.findById(Long.valueOf(params.get("module_code"))).orElseThrow();
+        moduleRepository.findById(String.valueOf(params.get("module_code"))).orElseThrow();
 
     // Create a Grade object and set all values.
     Grade grade = new Grade(0);
-    grade.setScore(Integer.valueOf(params.get("score")));
-    grade.setModule(module);
     grade.setStudent(student);
+    grade.setModule(module);
+    grade.setScore(Integer.valueOf(params.get("score")));
 
     // Save and return the Grade object.
     grade = gradeRepository.save(grade);
