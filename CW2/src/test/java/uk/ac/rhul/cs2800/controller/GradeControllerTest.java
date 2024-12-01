@@ -24,19 +24,12 @@ import uk.ac.rhul.cs2800.repository.GradeRepository;
 import uk.ac.rhul.cs2800.repository.ModuleRepository;
 import uk.ac.rhul.cs2800.repository.StudentRepository;
 
-<<<<<<< HEAD
 /**
  * Testing Springboot.
  */
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.MOCK)
 @AutoConfigureMockMvc
 public class GradeControllerTest {
-
-=======
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.MOCK)
-@AutoConfigureMockMvc
-public class GradeControllerTest {
->>>>>>> 726c14d0061fc3ae2d927d09a1c79ec4700b3dfb
   @Autowired
   private MockMvc mockMvc;
 
@@ -44,23 +37,17 @@ public class GradeControllerTest {
   private ObjectMapper objectMapper;
 
   @Autowired
-<<<<<<< HEAD
   private StudentRepository studentRepository;
   
   @Autowired
-=======
->>>>>>> 726c14d0061fc3ae2d927d09a1c79ec4700b3dfb
   private ModuleRepository moduleRepository;
 
   @Autowired
   private GradeRepository gradeRepository;
 
-<<<<<<< HEAD
-=======
   @Autowired
   private StudentRepository studentRepository;
 
->>>>>>> 726c14d0061fc3ae2d927d09a1c79ec4700b3dfb
   Student student;
   Module module;
 
