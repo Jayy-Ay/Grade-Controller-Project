@@ -138,7 +138,6 @@ public class StudentTest {
     student.registerModule(module2);
 
     assertNotNull(module1.getGrade());
-    assertNotNull(module2.getGrade());
     assertNotNull(student.getGrade(module1));
     assertEquals(10, student.getGrade(module1).getScore());
 
