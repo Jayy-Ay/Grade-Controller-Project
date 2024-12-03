@@ -133,8 +133,15 @@ public class StudentTest {
   void getGradeTest() throws NoGradeAvailableException, NoRegistrationException {
     // Test 9.
     Module module2 = new Module(null, "module2", false);
+    module1.setGrade(new Grade(10));
     student.registerModule(module1);
     student.registerModule(module2);
+
+    assertNotNull(module1.getGrade());
+    assertNotNull(module2.getGrade());
+    assertNotNull(student.getGrade(module1));
+    assertEquals(10, student.getGrade(module1).getScore());
+
     assertNotNull(student.registrations);
     assertNotNull(student.registrations.get(0).getModule());
     assertEquals("Math", student.registrations.get(0).getModule().getName());
