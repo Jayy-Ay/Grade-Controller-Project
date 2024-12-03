@@ -68,7 +68,7 @@ public class Registration {
   /**
    * Get student for registration.
    *
-   * @param The student for registration.
+   * @return The student for registration.
    */
   public Student getStudent() {
     return student;
