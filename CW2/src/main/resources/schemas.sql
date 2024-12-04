@@ -1,7 +1,7 @@
-DROP TABLE IF EXISTS grade cascade;
-DROP TABLE IF EXISTS registration cascade;
-DROP TABLE IF EXISTS student cascade;
-DROP TABLE IF EXISTS module cascade;
+DROP TABLE IF EXISTS grade CASCADE;
+DROP TABLE IF EXISTS registration CASCADE;
+DROP TABLE IF EXISTS student CASCADE;
+DROP TABLE IF EXISTS module CASCADE;
 
 
 CREATE TABLE student(
