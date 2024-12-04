@@ -7,6 +7,9 @@ import uk.ac.rhul.cs2800.model.Grade;
 import uk.ac.rhul.cs2800.model.Module;
 import uk.ac.rhul.cs2800.model.Student;
 
+/**
+ * Testing the Exceptions.
+ */
 public class ExceptionTest {
   Student student;
   Module module;

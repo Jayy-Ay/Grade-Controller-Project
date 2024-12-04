@@ -24,6 +24,9 @@ import uk.ac.rhul.cs2800.repository.GradeRepository;
 import uk.ac.rhul.cs2800.repository.ModuleRepository;
 import uk.ac.rhul.cs2800.repository.StudentRepository;
 
+/**
+ * Testing the Grade Controller.
+ */
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.MOCK)
 @AutoConfigureMockMvc
 public class GradeControllerTest {
