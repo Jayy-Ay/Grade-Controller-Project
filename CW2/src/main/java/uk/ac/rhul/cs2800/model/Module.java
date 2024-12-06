@@ -4,26 +4,20 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToOne;
 
-<<<<<<< HEAD
+
 /** This is a module that would contain the grade of the student. */
-=======
-/**
+
  * This is a school module that would contain grades.
  */
->>>>>>> 726c14d0061fc3ae2d927d09a1c79ec4700b3dfb
+
 @Entity
 public class Module {
   @Id
   String code;
 
-<<<<<<< HEAD
-  String name;
-
-  boolean mnc; // ie. mandatory non codonable.
-
   @OneToOne
   Grade grade;
-=======
+
   private String name;
 
   private boolean mnc; // ie. mandatory non codonable.
@@ -33,29 +27,24 @@ public class Module {
 
   @OneToOne
   Registration registration;
->>>>>>> 726c14d0061fc3ae2d927d09a1c79ec4700b3dfb
+
 
   /**
    * Constructors.
    *
    * @param code The code for the module.
    * @param name The name of the module.
-<<<<<<< HEAD
-   * @param mnc Also known as mnc.
-=======
-   * @param mnc Also known as andatoryNonCondonable
->>>>>>> 726c14d0061fc3ae2d927d09a1c79ec4700b3dfb
-   * @param grade The gradefor the module.
+   * @param mnc Also known as mandatoryNonCondonable
+   * @param grade The grade for the module.
    */
   public Module(String code, String name, boolean mnc, Grade grade) {
     this.code = code;
     this.name = name;
     this.mnc = mnc;
-    this.grade = grade;
+
   }
 
   /**
-<<<<<<< HEAD
    * Empty Contructor for Springboot.
    */
   public Module() {
@@ -68,10 +57,7 @@ public class Module {
    */
   public Grade getGrade() {
     return grade;
-=======
-   * Empty Method for GradeCrontroller.
-   */
-  public Module() {}
+  }
 
   /**
    * Set code for module.
@@ -80,7 +66,6 @@ public class Module {
    */
   public void setCode(String code) {
     this.code = code;
->>>>>>> 726c14d0061fc3ae2d927d09a1c79ec4700b3dfb
   }
 
   /**
@@ -109,8 +94,6 @@ public class Module {
   public String getName() {
     return this.name;
   }
-<<<<<<< HEAD
-=======
 
   /**
    * Set mnc for module.
@@ -165,5 +148,4 @@ public class Module {
   public Registration getRegistration() {
     return registration;
   }
->>>>>>> 726c14d0061fc3ae2d927d09a1c79ec4700b3dfb
 }

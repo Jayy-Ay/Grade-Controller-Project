@@ -1,31 +1,14 @@
 package uk.ac.rhul.cs2800.model;
 
-import java.util.ArrayList;
-import java.util.List;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import java.util.ArrayList;
+import java.util.List;
 import uk.ac.rhul.cs2800.exception.NoGradeAvailableException;
 import uk.ac.rhul.cs2800.exception.NoRegistrationException;
 
-<<<<<<< HEAD
-/** This contains all the important information of the student. */
-@Entity
-public class Student {
-  @Id
-  Long id;
-
-  String firstName;
-
-  String lastName;
-
-  String userName;
-
-  String email;
-
-  @OneToMany(mappedBy = "student") // TODO add mappedBy to other variables if necessary
-=======
-/**
+ /**
  * This contains all the important information of the student.
  */
 @Entity
@@ -39,7 +22,6 @@ public class Student {
   private String email;
 
   @OneToMany(mappedBy = "student")
->>>>>>> 726c14d0061fc3ae2d927d09a1c79ec4700b3dfb
   List<Grade> grades;
 
   @OneToMany(mappedBy = "student")
@@ -130,16 +112,7 @@ public class Student {
     registrations.add(registation);
   }
 
-  /**
-<<<<<<< HEAD
-   * Returns the id of the student.
-   *
-   * @return id the student id
-   */
-  public Long getId() {
-    return this.id;
-  }
-=======
+   /** 
    * Set the studendt's id.
    *
    * @param id The student's id.
@@ -165,7 +138,6 @@ public class Student {
   public void setFirstName(String firstName) {
     this.firstName = firstName;
   }
-
 
   /**
    * Get the studendt's first name.
@@ -229,5 +201,4 @@ public class Student {
   public String getEmail() {
     return email;
   }
->>>>>>> 726c14d0061fc3ae2d927d09a1c79ec4700b3dfb
 }
