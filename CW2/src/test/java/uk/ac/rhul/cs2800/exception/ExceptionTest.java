@@ -7,6 +7,9 @@ import uk.ac.rhul.cs2800.model.Grade;
 import uk.ac.rhul.cs2800.model.Module;
 import uk.ac.rhul.cs2800.model.Student;
 
+/**
+ * Testing the Exceptions.
+ */
 public class ExceptionTest {
   Student student;
   Module module;
@@ -15,7 +18,7 @@ public class ExceptionTest {
   @BeforeEach
   void beforeEach() {
     student = new Student(0, null, null, null, null);
-    module = new Module(null, "Math", false, null);
+    module = new Module(null, "Math", false);
     grade = new Grade(100);
   }
 
@@ -24,11 +27,12 @@ public class ExceptionTest {
    */
   @Test
   void NoGradeAvailableException() {
-    assertThrows(NoGradeAvailableException.class, () -> { // Test 25.
+    // Test 19.
+    assertThrows(NoGradeAvailableException.class, () -> {
       student.computeAverage();
     });
-    assertThrows(NoGradeAvailableException.class, () -> { // Test 26.
-      Module module = new Module(null, null, false, null);
+    assertThrows(NoGradeAvailableException.class, () -> {
+      Module module = new Module(null, null, false);
       student.registerModule(module);
       student.getGrade(module);
     });
@@ -39,12 +43,13 @@ public class ExceptionTest {
    */
   @Test
   void NoRegistrationException() {
-    assertThrows(NoRegistrationException.class, () -> { // Test 27.
+    // Test 20.
+    assertThrows(NoRegistrationException.class, () -> {
       student.getGrade(module);
     });
-    assertThrows(NoRegistrationException.class, () -> { // Test 28.
-      Module module1 = new Module(null, "module1", false, null);
-      Module module2 = new Module(null, "module2", false, null);
+    assertThrows(NoRegistrationException.class, () -> {
+      Module module1 = new Module(null, "module1", false);
+      Module module2 = new Module(null, "module2", false);
       student.registerModule(module1);
       student.getGrade(module2);
     });

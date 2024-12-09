@@ -1,10 +1,10 @@
 package uk.ac.rhul.cs2800.model;
 
+import java.util.ArrayList;
+import java.util.List;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
-import java.util.ArrayList;
-import java.util.List;
 import uk.ac.rhul.cs2800.exception.NoGradeAvailableException;
 import uk.ac.rhul.cs2800.exception.NoRegistrationException;
 
@@ -49,9 +49,7 @@ public class Student {
   /**
    * Empty Contructor for Springboot.
    */
-  public Student() {
-  }
-
+  public Student() {}
   /**
    * Take all grade scores of the student and calculate the average.
    *
@@ -105,9 +103,8 @@ public class Student {
    * Register the student with the module.
    *
    * @param module The module that the student is taking.
-   * @throws NoRegistrationException If a user try to access grades for unregistered modules.
    */
-  public void registerModule(Module module) throws NoRegistrationException {
+  public void registerModule(Module module) {
     Registration registation = new Registration(module);
     registrations.add(registation);
   }

@@ -5,8 +5,9 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToOne;
 
 
-/** This is a module that would contain the grade of the student. */
-
+/**
+ * This is a module that would contain the grade of the student.
+ * 
  * This is a school module that would contain grades.
  */
 
@@ -23,9 +24,6 @@ public class Module {
   private boolean mnc; // ie. mandatory non codonable.
 
   @OneToOne
-  Grade grade;
-
-  @OneToOne
   Registration registration;
 
 
@@ -34,14 +32,17 @@ public class Module {
    *
    * @param code The code for the module.
    * @param name The name of the module.
+<<<<<<< HEAD
    * @param mnc Also known as mandatoryNonCondonable
    * @param grade The grade for the module.
+=======
+   * @param mnc Also known as andatoryNonCondonable
+>>>>>>> CW2-21
    */
-  public Module(String code, String name, boolean mnc, Grade grade) {
+  public Module(String code, String name, boolean mnc) {
     this.code = code;
     this.name = name;
     this.mnc = mnc;
-
   }
 
   /**
@@ -120,15 +121,6 @@ public class Module {
    */
   public void setGrade(Grade grade) {
     this.grade = grade;
-  }
-
-  /**
-   * Get grade for module.
-   *
-   * @return The grade for module.
-   */
-  public Grade getGrade() {
-    return grade;
   }
 
   /**

@@ -16,7 +16,7 @@ public class GradeTest {
   @BeforeEach
   void beforeEach() {
     student = new Student(0, null, null, null, null);
-    module = new Module("CS2500", "Hardware_Engineering", false, null);
+    module = new Module("CS2500", "Hardware_Engineering", false);
     grade = new Grade(100);
   }
 
@@ -25,6 +25,7 @@ public class GradeTest {
    */
   @Test
   void getScoreTest() {
+    // Test 10.
     grade.setScore(5);
     assertNotNull(grade.getScore());
     assertEquals(5, grade.getScore());
@@ -35,6 +36,7 @@ public class GradeTest {
    */
   @Test
   void getModuleTest() {
+    // Test 11.
     grade.setModule(module);
     grade.getModule();
     assertNotNull(grade.getModule());
@@ -45,7 +47,8 @@ public class GradeTest {
    * Check if can set and get a student using grade.
    */
   @Test
-  void getStudent() {
+  void getStudentTest() {
+    // Test 12.
     grade.setStudent(student);
     assertNotNull(grade.getStudent());
     assertEquals(0, grade.getStudent().getId());

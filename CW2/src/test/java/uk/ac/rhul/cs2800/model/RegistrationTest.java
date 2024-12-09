@@ -16,15 +16,27 @@ public class RegistrationTest {
   @BeforeEach
   void beforeEach() {
     student = new Student(0, null, null, null, null);
-    module = new Module("CS2500", null, false, null);
+    module = new Module("CS2500", null, false);
     registration = new Registration();
+  }
+
+  /**
+   * Check if can set and get a registration's Id.
+   */
+  @Test
+  void getId() {
+    // Test 22.
+    registration.setId(Long.valueOf(1));
+    assertNotNull(registration.getId());
+    assertEquals(1, registration.getId());
   }
 
   /**
    * Check if can set and get a registration's module.
    */
   @Test
-  void getModule() {
+  void getModuleTest() {
+    // Test 17.
     registration.setModule(module);
     assertNotNull(registration.getModule());
     assertEquals("CS2500", registration.getModule().getCode());
@@ -34,7 +46,8 @@ public class RegistrationTest {
    * Check if can set and get a registration's student.
    */
   @Test
-  void getStudent() {
+  void getStudentTest() {
+    // Test 18.
     registration.setStudent(student);
     assertNotNull(registration.getStudent());
     assertEquals(0, registration.getStudent().getId());

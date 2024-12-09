@@ -13,7 +13,7 @@
   <artifactId>CW2</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <name>CW2</name>
-  <description>Demo project for Spring Boot</description>
+  <description>Jared Tan Project Springboot</description>
   <url />
   <licenses>
     <license />
@@ -68,6 +68,11 @@
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-security</artifactId>
+    </dependency>
+    <dependency>
+    	<groupId>uk.ac.rhul.cs2800</groupId>
+    	<artifactId>CW1</artifactId>
+    	<version>1.0-SNAPSHOT</version>
     </dependency>
   </dependencies>
 
@@ -202,6 +207,11 @@
           <doclint>all,-missing</doclint>
         </configuration>
       </plugin>
+      <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <version>3.0.0</version>
+        </plugin>
     </plugins>
   </reporting>
 

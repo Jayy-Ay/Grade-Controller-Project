@@ -45,6 +45,15 @@ public class Registration {
   public Registration() {}
 
   /**
+   * Set id for registration.
+   *
+   * @param id The id for registration.
+   */
+  public void setId(Long id) {
+    this.id = id;
+  }
+
+  /**
    * Get id for registration.
    *
    * @return The id for registration.
@@ -65,7 +74,7 @@ public class Registration {
   /**
    * Get student for registration.
    *
-   * @param The student for registration.
+   * @return The student for registration.
    */
   public Student getStudent() {
     return student;
