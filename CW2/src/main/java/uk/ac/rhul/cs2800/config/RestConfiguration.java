@@ -1,6 +1,5 @@
 package uk.ac.rhul.cs2800.config;
 
-
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurer;

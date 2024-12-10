@@ -85,22 +85,13 @@ public class GradeControllerTest {
             .content(objectMapper.writeValueAsString(params)).accept(MediaType.APPLICATION_JSON))
         .andReturn();
 
-    assertEquals(HttpStatus.OK.value(), action.getResponse().getStatus());
-
-
     // Take action's response as a JSON string, then into Grade object
     Grade grade = objectMapper.readValue(action.getResponse().getContentAsString(), Grade.class);
-    assertEquals(module.getCode(), grade.getModule().getCode()); // Test 36.
-    assertEquals(module.getName(), grade.getModule().getCode()); // Test 37.
-    assertEquals(5, grade.getScore()); // Test 38.
-    assertNotNull(grade.getScore()); // Test 39.
-    assertEquals(HttpStatus.OK.value(), action.getResponse().getStatus());
-
-    // Take action's response as a JSON string, then into Grade object
     assertEquals(module.getCode(), grade.getModule().getCode());
-    assertEquals(module.getName(), grade.getModule().getName());
+    assertEquals(module.getName(), grade.getModule().getCode());
     assertEquals(5, grade.getScore());
     assertNotNull(grade.getScore());
+    assertEquals(HttpStatus.OK.value(), action.getResponse().getStatus());
 
     gradeRepository.deleteAll();
   }
