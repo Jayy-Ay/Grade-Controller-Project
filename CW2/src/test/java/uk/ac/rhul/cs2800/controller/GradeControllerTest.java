@@ -50,9 +50,6 @@ public class GradeControllerTest {
 
   @BeforeEach
   void beforeEach() {
-
-    student = new Student();
-    student = studentRepository.save(student);
     student = new Student(1, "Bob", "Bobby", "xBobx", "bob@gmail.com");
     student = studentRepository.save(student);
     module = new Module("CS2800", "Hardware_Engineering", false);
@@ -88,7 +85,7 @@ public class GradeControllerTest {
     // Take action's response as a JSON string, then into Grade object
     Grade grade = objectMapper.readValue(action.getResponse().getContentAsString(), Grade.class);
     assertEquals(module.getCode(), grade.getModule().getCode());
-    assertEquals(module.getName(), grade.getModule().getCode());
+    assertEquals(module.getName(), grade.getModule().getName());
     assertEquals(5, grade.getScore());
     assertNotNull(grade.getScore());
     assertEquals(HttpStatus.OK.value(), action.getResponse().getStatus());
