@@ -4,13 +4,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToOne;
 
-
 /**
- * This is a module that would contain the grade of the student.
- * 
  * This is a school module that would contain grades.
  */
-
 @Entity
 public class Module {
   @Id
@@ -26,18 +22,14 @@ public class Module {
   @OneToOne
   Registration registration;
 
-
   /**
    * Constructors.
    *
    * @param code The code for the module.
    * @param name The name of the module.
-<<<<<<< HEAD
    * @param mnc Also known as mandatoryNonCondonable
    * @param grade The grade for the module.
-=======
    * @param mnc Also known as andatoryNonCondonable
->>>>>>> CW2-21
    */
   public Module(String code, String name, boolean mnc) {
     this.code = code;

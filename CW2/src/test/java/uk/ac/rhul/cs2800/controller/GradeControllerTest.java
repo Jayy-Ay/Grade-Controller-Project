@@ -45,7 +45,6 @@ public class GradeControllerTest {
   @Autowired
   private GradeRepository gradeRepository;
 
-
   Student student;
   Module module;
 

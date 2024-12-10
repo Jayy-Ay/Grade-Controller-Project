@@ -50,6 +50,7 @@ public class Student {
    * Empty Contructor for Springboot.
    */
   public Student() {}
+
   /**
    * Take all grade scores of the student and calculate the average.
    *
