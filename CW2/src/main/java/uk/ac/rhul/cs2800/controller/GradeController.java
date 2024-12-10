@@ -51,7 +51,7 @@ public class GradeController {
 
     // Find the module by using the module_code.
     Module module =
-        moduleRepository.findById(Long.valueOf(params.get("module_code")))
+        moduleRepository.findById(String.valueOf(params.get("module_code")))
             .orElseThrow(() -> new IllegalArgumentException("Module not found"));
 
     // Create a Grade object and set all values.

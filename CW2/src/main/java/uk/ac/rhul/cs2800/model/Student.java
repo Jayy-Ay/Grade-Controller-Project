@@ -1,14 +1,14 @@
 package uk.ac.rhul.cs2800.model;
 
-import java.util.ArrayList;
-import java.util.List;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import java.util.ArrayList;
+import java.util.List;
 import uk.ac.rhul.cs2800.exception.NoGradeAvailableException;
 import uk.ac.rhul.cs2800.exception.NoRegistrationException;
 
- /**
+/**
  * This contains all the important information of the student.
  */
 @Entity
@@ -50,6 +50,7 @@ public class Student {
    * Empty Contructor for Springboot.
    */
   public Student() {}
+
   /**
    * Take all grade scores of the student and calculate the average.
    *
@@ -109,7 +110,7 @@ public class Student {
     registrations.add(registation);
   }
 
-   /** 
+  /**
    * Set the studendt's id.
    *
    * @param id The student's id.
