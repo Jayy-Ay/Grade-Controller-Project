@@ -7,7 +7,6 @@ import org.junit.jupiter.api.Test;
 import uk.ac.rhul.cs2800.exception.NoGradeAvailableException;
 import uk.ac.rhul.cs2800.exception.NoRegistrationException;
 
-
 /**
  * Testing the student class.
  */
