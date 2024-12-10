@@ -7,7 +7,6 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 
-=======
 /**
  * This is where the grade of a student in a module is stored alongsided their scores.
  */

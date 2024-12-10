@@ -7,11 +7,9 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 
-/** This is for the student to register. */=======
 /**
  * This is for the student to register.
  */
-
 @Entity
 public class Registration {
   @Id
@@ -93,6 +91,4 @@ public class Registration {
   public Module getModule() {
     return module;
   }
-
 }
-
