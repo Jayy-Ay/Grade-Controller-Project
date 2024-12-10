@@ -29,9 +29,6 @@ public class Grade {
   @JoinColumn(name = "module_code")
   Module module;
 
-  Integer score; // 'int' not used because 'Integer' allows null value.
-
-
   /**
    * Constructors.
    *
@@ -98,19 +95,5 @@ public class Grade {
    */
   public Student getStudent() {
     return this.student;
->>>>>>> 726c14d0061fc3ae2d927d09a1c79ec4700b3dfb
-  }
-
-  /**
-   * Set the module for this grade.
-   *
-   * @param module relating to the grade to set.
-   */
-  public void setModule(Module module) {
-    this.module = module;
-  }
-
-  public void setStudent(Student student) {
-    this.student = student;
   }
 }
