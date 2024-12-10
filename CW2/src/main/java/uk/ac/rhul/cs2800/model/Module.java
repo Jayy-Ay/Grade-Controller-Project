@@ -28,7 +28,6 @@ public class Module {
    * @param code The code for the module.
    * @param name The name of the module.
    * @param mnc Also known as mandatoryNonCondonable
-   * @param grade The grade for the module.
    */
   public Module(String code, String name, boolean mnc) {
     this.code = code;
