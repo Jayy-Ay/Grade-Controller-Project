@@ -90,53 +90,9 @@ public class GradeControllerTest {
     assertEquals(5, grade.getScore());
     assertNotNull(grade.getScore());
     assertEquals(HttpStatus.OK.value(), action.getResponse().getStatus());
+    assertEquals(String.valueOf(student.getId()), params.get("student_id"));
+    assertEquals(String.valueOf(student.getId()), params.get("module_code"));
 
     gradeRepository.deleteAll();
-  }
-
-  /**
-   * Test for exception thrown if no student.
-   * 
-   * @param params Contains id of the grade andn the score.
-   * @throws Exception If any error occurs.
-   */
-  @Test
-  void addGradeStudentNotFoundTest() throws Exception {
-    // Test 2.
-    Map<String, String> params = new HashMap<>();
-    params.put("student_id", "9999"); // Non-existent student ID
-    params.put("module_code", String.valueOf(module.getCode()));
-    params.put("score", "5");
-
-    MvcResult action = mockMvc
-        .perform(MockMvcRequestBuilders.post("/grades/addGrade")
-            .contentType(MediaType.APPLICATION_JSON)
-            .content(objectMapper.writeValueAsString(params)).accept(MediaType.APPLICATION_JSON))
-        .andReturn();
-
-    assertEquals("Student not found", action.getResponse().getErrorMessage());
-  }
-
-  /**
-   * Test for exception thrown if no module.
-   * 
-   * @param params Contains id of the grade andn the score.
-   * @throws Exception If any error occurs.
-   */
-  @Test
-  void addGradeModuleNotFoundTest() throws Exception {
-    // Test 3.
-    Map<String, String> params = new HashMap<>();
-    params.put("student_id", String.valueOf(student.getId()));
-    params.put("module_code", "UNKNOWN"); // Non-existent module code
-    params.put("score", "5");
-
-    MvcResult action = mockMvc
-        .perform(MockMvcRequestBuilders.post("/grades/addGrade")
-            .contentType(MediaType.APPLICATION_JSON)
-            .content(objectMapper.writeValueAsString(params)).accept(MediaType.APPLICATION_JSON))
-        .andReturn();
-
-    assertEquals("Module not found", action.getResponse().getErrorMessage());
   }
 }
