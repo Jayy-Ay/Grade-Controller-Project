@@ -25,7 +25,7 @@ public class RegistrationTest {
    */
   @Test
   void getId() {
-    // Test 22.
+    // Test 1.
     registration.setId(Long.valueOf(1));
     assertNotNull(registration.getId());
     assertEquals(1, registration.getId());
@@ -36,7 +36,7 @@ public class RegistrationTest {
    */
   @Test
   void getModuleTest() {
-    // Test 17.
+    // Test 2.
     registration.setModule(module);
     assertNotNull(registration.getModule());
     assertEquals("CS2500", registration.getModule().getCode());
@@ -47,7 +47,7 @@ public class RegistrationTest {
    */
   @Test
   void getStudentTest() {
-    // Test 18.
+    // Test 3.
     registration.setStudent(student);
     assertNotNull(registration.getStudent());
     assertEquals(0, registration.getStudent().getId());
