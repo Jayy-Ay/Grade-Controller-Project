@@ -27,7 +27,7 @@ public class ExceptionTest {
    */
   @Test
   void NoGradeAvailableException() {
-    // Test 19.
+    // Test 1.
     assertThrows(NoGradeAvailableException.class, () -> {
       student.computeAverage();
     });
@@ -43,7 +43,7 @@ public class ExceptionTest {
    */
   @Test
   void NoRegistrationException() {
-    // Test 20.
+    // Test 2.
     assertThrows(NoRegistrationException.class, () -> {
       student.getGrade(module);
     });
