@@ -15,7 +15,7 @@ public class ModuleTest {
 
   @BeforeEach
   void beforeEach() {
-    module = new Module();
+    module = new Module(null, null, false);
     grade = new Grade(100);
   }
 
@@ -24,7 +24,7 @@ public class ModuleTest {
    */
   @Test
   void getCodeTest() {
-    // Test 13.
+    // Test 1.
     module.setCode("CS2500");
     assertNotNull(module.getCode());
     assertEquals("CS2500", module.getCode());
@@ -35,7 +35,7 @@ public class ModuleTest {
    */
   @Test
   void getNameTest() {
-    // Test 14.
+    // Test 2.
     module.setName("Math");
     assertNotNull(module.getName());
     assertEquals("Math", module.getName());
@@ -46,7 +46,7 @@ public class ModuleTest {
    */
   @Test
   void getMncTest() {
-    // Test 14.
+    // Test 3.
     module.setMnc(true);
     assertNotNull(module.getMnc());
     assertEquals(true, module.getMnc());
@@ -59,7 +59,7 @@ public class ModuleTest {
    */
   @Test
   void getGradeTest() throws NoGradeAvailableException {
-    // Test 16.
+    // Test 4.
     module.setGrade(grade);
     assertNotNull(module.getGrade());
     assertEquals(100, module.getGrade().getScore());

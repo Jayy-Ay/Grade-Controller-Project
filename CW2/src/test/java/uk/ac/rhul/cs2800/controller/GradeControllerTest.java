@@ -70,7 +70,7 @@ public class GradeControllerTest {
    */
   @Test
   void addGradeTest() throws JsonProcessingException, Exception {
-    // Test 21.
+    // Test 1.
     Map<String, String> params = new HashMap<String, String>();
     params.put("student_id", String.valueOf(student.getId()));
     params.put("module_code", String.valueOf(module.getCode()));
